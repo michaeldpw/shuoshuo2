@@ -1,5 +1,5 @@
 module.exports = {
     url:  "https://reactmernstack1.herokuapp.com" ,
-    port:  process.env.PORT 
+    port:  process.env.PORT || 5000
 
 }
