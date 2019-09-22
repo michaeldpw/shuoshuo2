@@ -27,7 +27,7 @@ class Navbar extends React.Component{
     }
 
     handleLogOut = () => {
-        axios.get(url + ':5000/logout').then(res => {
+        axios.get("https://reactmernstack1.herokuapp.com:5000/logout").then(res => {
             this.setState({
                 logout:res.data.logout
             })
