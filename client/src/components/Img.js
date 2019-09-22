@@ -1,4 +1,5 @@
 import React from 'react'
+import defaultAvatar from './default.jpg'
 
 class Img extends React.Component{
 
@@ -11,7 +12,7 @@ class Img extends React.Component{
 
     handleImageError = () => {
         this.setState({
-            src: require('./default.jpg')
+            src: defaultAvatar
         })
     }
 
