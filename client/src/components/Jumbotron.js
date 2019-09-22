@@ -13,6 +13,7 @@ export default class Jumbotron extends React.Component{
     }
 
     componentDidMount(){
+        console.log('componentdidmount');
         axios.get(url + ':5000/getsession').then(res => {
             //console.log(res.data);
             this.setState({
