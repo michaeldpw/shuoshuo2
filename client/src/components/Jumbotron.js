@@ -3,6 +3,7 @@ import axios from 'axios';
 import Post from './Post'
 import SignIn from './SignIn';
 import { url, port } from '../url'
+import defaultAvatar from './default.jpg'
 
 export default class Jumbotron extends React.Component{
 
@@ -45,7 +46,7 @@ export default class Jumbotron extends React.Component{
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
-                                <img src={url + ':' + port + "/avatar/default.jpg"} alt=""/>
+                                <img src={defaultAvatar} alt=""/>
                                 <span className="hint">Please sign in</span>
                             </div>
                            <SignIn/>

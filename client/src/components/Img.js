@@ -12,7 +12,7 @@ class Img extends React.Component{
 
     handleImageError = () => {
         this.setState({
-            src: defaultAvatar
+            src: require('./default.jpg')
         })
     }
 
