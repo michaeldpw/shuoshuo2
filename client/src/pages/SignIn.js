@@ -19,7 +19,7 @@ class SignIn extends React.Component{
     }
 
     handleClick = () => {
-        this.props.history.push(url + ':' + port  + '/#/signup');
+        this.props.history.push('/signup');
         console.log('jump to signup');
     }
 
