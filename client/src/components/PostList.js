@@ -13,7 +13,7 @@ class PostList extends React.Component{
     }
 
     getCount = () => {
-        axios.get(url + ':5000/count').then(res => {
+        axios.get("https://reactmernstack1.herokuapp.com:5000/count").then(res => {
             this.setState({
                 total: res.data.count
             })
