@@ -17,7 +17,7 @@ app.use(session({
     saveUninitialized: true
 }))
 const config = {
-    origin: 'http://127.0.0.1:' + process.env.PORT || 'http://127.0.0.1:8000',
+    origin: process.env.baseURL + ':' + process.env.PORT || 'http://127.0.0.1:8000',
     credentials: true,
 };
 app.use(cors(config));
