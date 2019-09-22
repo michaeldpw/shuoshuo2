@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import Post from './Post'
 import SignIn from './SignIn';
-import { url } from '../url'
+import { url, port } from '../url'
 
 export default class Jumbotron extends React.Component{
 
@@ -14,7 +14,7 @@ export default class Jumbotron extends React.Component{
 
     componentDidMount(){
         console.log('componentdidmount');
-        axios.get(url + ':5000/getsession').then(res => {
+        axios.get("https://reactmernstack1.herokuapp.com:5000/getsession").then(res => {
             //console.log(res.data);
             this.setState({
                 username: res.data.username,
