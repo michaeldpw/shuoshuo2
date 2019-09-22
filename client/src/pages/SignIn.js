@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import { url } from '../url'
+import { url, port } from '../url'
 axios.defaults.withCredentials = true;
 
 class SignIn extends React.Component{
@@ -19,7 +19,7 @@ class SignIn extends React.Component{
     }
 
     handleClick = () => {
-        this.props.history.push(url + '/#/signup');
+        this.props.history.push(url + ':' + port  + '/#/signup');
         console.log('jump to signup');
     }
 
