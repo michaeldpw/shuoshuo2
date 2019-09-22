@@ -1,3 +1,3 @@
 module.exports = {
-    url: "https://reactmernstack1.herokuapp.com" || "http://127.0.0.1" 
+    url:  process.env.baseURL  || "http://127.0.0.1" 
 }
