@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import './components.css';
 import Img from './Img';
-import { url } from '../url'
+import { url, port } from '../url'
 
 class PostList extends React.Component{
 
@@ -13,7 +13,7 @@ class PostList extends React.Component{
     }
 
     getCount = () => {
-        axios.get("https://reactmernstack1.herokuapp.com:5000/count").then(res => {
+        axios.get(url + ':' + port + '/count').then(res => {
             this.setState({
                 total: res.data.count
             })
@@ -21,7 +21,7 @@ class PostList extends React.Component{
     }
 
     getData = async (page) => {
-        const response = await fetch(`${url}:5000/allpost?page=${page}`, {
+        const response = await fetch(`${url}:${port}/allpost?page=${page}`, {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
@@ -103,7 +103,7 @@ class PostList extends React.Component{
                             return (
                                  <a className="list-group-item" key={index}>
                                     <div className="comment-avatar">
-                                           <Img src={url + ":5000/avatar/" + item.username + '.jpg'} alt=""/>
+                                           <Img src={url + ':' + port + "/avatar/" + item.username + '.jpg'} alt=""/>
                                     </div>
                                     <div className="username">
                                         <h4>{item.username}</h4> 

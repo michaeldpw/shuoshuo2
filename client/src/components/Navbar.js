@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './components.css';
 import brand from './brand.jpg'
-import { url } from '../url'
+import { url, port } from '../url'
 axios.defaults.withCredentials = true;
 
 class Navbar extends React.Component{
@@ -16,7 +16,7 @@ class Navbar extends React.Component{
 
     componentDidMount(){
 
-        axios.get("https://reactmernstack1.herokuapp.com:5000/getsession").then(res => {
+        axios.get(url + ':' + port + '/getsession').then(res => {
             console.log(res.data);
             this.setState({
                 username: res.data.username,
@@ -27,7 +27,7 @@ class Navbar extends React.Component{
     }
 
     handleLogOut = () => {
-        axios.get("https://reactmernstack1.herokuapp.com:5000/logout").then(res => {
+        axios.get(url + ':' + port + '/logout').then(res => {
             this.setState({
                 logout:res.data.logout
             })
@@ -71,11 +71,6 @@ class Navbar extends React.Component{
                                     <li className={className}> <NavLink to="/signup">Create New Account</NavLink></li>
                             </ul>
                         }
-                                
-                                
-            
-                        
-                        
                     </div> 
                 </div>
             </nav>

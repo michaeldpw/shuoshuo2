@@ -14,7 +14,7 @@ export default class Jumbotron extends React.Component{
 
     componentDidMount(){
         console.log('componentdidmount');
-        axios.get("https://reactmernstack1.herokuapp.com:5000/getsession").then(res => {
+        axios.get(url + ':' + port + '/getsession').then(res => {
             //console.log(res.data);
             this.setState({
                 username: res.data.username,
@@ -34,7 +34,7 @@ export default class Jumbotron extends React.Component{
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
-                                <img src={url + ":5000/avatar/" + this.state.avatar + '.jpg'} alt=""/>
+                                <img src={url + ':' + port + "/avatar/" + this.state.avatar + '.jpg'} alt=""/>
                                 <p>{this.state.username}</p>
                             </div>
                             <div className="col-lg-6 col-lg-offset-1">
@@ -45,7 +45,7 @@ export default class Jumbotron extends React.Component{
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
-                                <img src={url + ":5000/avatar/default.jpg"} alt=""/>
+                                <img src={url + ':' + port + "/avatar/default.jpg"} alt=""/>
                                 <span className="hint">Please sign in</span>
                             </div>
                            <SignIn/>

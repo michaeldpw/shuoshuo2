@@ -18,7 +18,7 @@ app.use(session({
 }))
 const config = {
     // origin: process.env.baseURL + ':' + process.env.PORT || 'http://127.0.0.1:8000',
-    origin: "https://reactmernstack1.herokuapp.com:8000",
+    origin: "https://reactmernstack1.herokuapp.com:" + port,
     credentials: true,
 };
 app.use(cors(config));
@@ -51,4 +51,4 @@ app.get('/logout', router.doLogOut);
 //     });
 // }
 
-app.listen(5000);
+app.listen(port);
