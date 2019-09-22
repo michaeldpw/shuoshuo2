@@ -18,6 +18,10 @@ class SignIn extends React.Component{
         })
     }
 
+    handleClick = () => {
+        this.props.history.push('/signup');
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         const user = {
@@ -69,11 +73,11 @@ class SignIn extends React.Component{
 
                         <button type="submit" className="signin-btn">Log In</button>
                     </form>
-                    <div class="con">
+                    <div className="con">
                         <i></i>
                         <p>or</p>
                     </div>
-                    <button className="create_account">Create a new account</button>
+                    <button className="create_account" onClick={this.handleClick}>Create a new account</button>
                 </div>
                 
                
