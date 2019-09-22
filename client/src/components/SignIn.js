@@ -25,6 +25,7 @@ class SignIn extends React.Component{
             password: this.state.pw
         }
         console.log(user);
+        console.log(url);
         axios.post(url + ':' + port + '/checklogin',user).then(res => {
             console.log(res.data);
             this.setState({
