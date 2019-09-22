@@ -16,7 +16,7 @@ class Navbar extends React.Component{
 
     componentDidMount(){
 
-        axios.get(url + ':5000/getsession').then(res => {
+        axios.get("https://reactmernstack1.herokuapp.com:5000/getsession").then(res => {
             console.log(res.data);
             this.setState({
                 username: res.data.username,
