@@ -19,7 +19,7 @@ class SignIn extends React.Component{
     }
 
     handleClick = () => {
-        this.props.history.push('/signup');
+        this.props.history.push('https://reactmernstack1.herokuapp.com/#/signup');
         console.log('jump to signup');
     }
 
