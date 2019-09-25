@@ -1,10 +1,37 @@
 import React from 'react'
+import axios from 'axios'
+import MyPostList from '../components/MyPostList'
+
 
 export default class MyPost extends React.Component {
+
+    state = {
+        username: '',
+        sessioncode: '',
+        avatar: ''
+    }
+
+    componentDidMount(){
+        axios.get('/getsession').then(res => {
+            this.setState({
+                username: res.data.username,
+                sessioncode: res.data.code,
+                avatar: res.data.avatar
+            })
+            console.log(this.state);
+        })
+    }
+
+
     render(){
         return (
-            <div>
-                my post
+            <div className="container">
+                {
+                    this.state.username? 
+                    <p>please sign in</p>
+                    :
+                    <MyPostList />
+                }
             </div>
         )
     }

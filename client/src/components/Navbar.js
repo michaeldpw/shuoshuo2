@@ -55,7 +55,7 @@ class Navbar extends React.Component{
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav navbar-nav navbar-item">
                             <li className={className}><a href="#">Posts <span className="sr-only">(current)</span></a></li>
-                            <li className={className}><a href="#">My Post</a></li>
+                            <li className={className}><NavLink to="/mypost">My Post</NavLink></li>
                             
                         </ul> 
                         {
