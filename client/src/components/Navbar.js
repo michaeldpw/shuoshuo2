@@ -51,21 +51,22 @@ class Navbar extends React.Component{
                             <img alt="Brand" src={brand}/>
                         </a>
                     </div>
-                    <div id="navbar" className="navbar-collapse collapse">
+                    <div className="navbar-collapse collapse">
                         <ul className="nav navbar-nav navbar-item">
-                            <li className=""><NavLink to="/"><span>Posts</span></NavLink></li>
-                            <li className=""><NavLink to="/mypost"><span>My Post</span></NavLink></li>        
+                            <li className="hvr-underline-from-center"><NavLink to="/">Posts</NavLink></li>
+                            <li className="hvr-underline-from-center"><NavLink to="/mypost">My Posts</NavLink></li>
+                            <li className="hvr-underline-from-center"><NavLink to="/members">Team Members</NavLink></li>                
                         </ul> 
                         {
                             this.state.username? 
                             <ul className="nav navbar-nav navbar-right">
                                 <li> <a>Welcome, {this.state.username}</a></li>
-                                <li className=""> <NavLink to={"/user/" + this.state.link}><span>Profile</span></NavLink></li>
-                                <li><a onClick={this.handleLogOut}><span>Log Out</span></a></li>
+                                <li className="hvr-underline-from-center"> <NavLink to={"/user/" + this.state.link}>Profile</NavLink></li>
+                                <li className="hvr-underline-from-center"><a onClick={this.handleLogOut}>Log Out</a></li>
                             </ul>:
                             <ul className="nav navbar-nav navbar-right">
-                                <li className=""> <NavLink to="/signin"><span>Log In</span></NavLink></li> 
-                                <li className=""> <NavLink to="/signup"><span>Create New Account</span></NavLink></li>
+                                <li className="hvr-underline-from-center"> <NavLink to="/signin">Log In</NavLink></li> 
+                                <li className="hvr-underline-from-center"> <NavLink to="/signup">Create New Account</NavLink></li>
                             </ul>
                         }
                     </div> 

@@ -28,12 +28,12 @@ class PostList extends React.Component{
             },
           });
       
-          const data = await response.json();
+        //   const data = await response.json();
       
-          this.setState({
-            post: data.result,
-            currentPage: data.page + 1
-          });
+        //   this.setState({
+        //     post: data.result,
+        //     currentPage: data.page + 1
+        //   });
     }
 
     componentDidMount(){
