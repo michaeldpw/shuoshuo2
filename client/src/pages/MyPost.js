@@ -28,9 +28,9 @@ export default class MyPost extends React.Component {
             <div className="container">
                 {
                     this.state.username? 
-                    <p>please sign in</p>
-                    :
                     <MyPostList />
+                    :
+                    <p>please sign in</p>
                 }
             </div>
         )

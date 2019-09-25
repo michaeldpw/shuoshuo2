@@ -62,7 +62,6 @@ exports.uploadAndCropAvatar = function(req, res, next){
                                 console.log(err);
                                 return;
                             }
-                            res.redirect("http://127.0.0.1:3000/#/user/" + req.session.username)
                             }
                         )
         })       
