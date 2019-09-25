@@ -16,12 +16,13 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
-const config = {
-    // origin: process.env.baseURL + ':' + process.env.PORT || 'http://127.0.0.1:8000',
-    origin: "https://reactmernstack1.herokuapp.com:" + port,
-    credentials: true,
-};
-app.use(cors(config));
+// const config = {
+//     // origin: process.env.baseURL + ':' + process.env.PORT || 'http://127.0.0.1:8000',
+//     origin: "https://reactmernstack1.herokuapp.com:" + port,
+//     credentials: true,
+// };
+// app.use(cors(config));
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
