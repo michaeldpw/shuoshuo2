@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { url } from '../url'
+import { url, port } from '../url'
 import  bg  from './signup-bg.jpg'
 axios.defaults.withCredentials = true;
 
@@ -25,7 +25,7 @@ class SignUp extends React.Component{
             password: this.state.password
         }
         //console.log(user);
-        axios.post(url + ':5000/doregister',user).then(res => {
+        axios.post(url + ':' + port +  '/doregister',user).then(res => {
             //console.log(res.data);
                 this.setState({
                     code: res.data

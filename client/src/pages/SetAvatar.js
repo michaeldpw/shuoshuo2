@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './pages.css';
 import ReactCrop from 'react-image-crop';
 import "react-image-crop/dist/ReactCrop.css";
-import { url } from '../url'
+import { url, port } from '../url'
 
 import {extractImageFileExtensionFromBase64,
 	image64toCanvasRef} from '../base64'
@@ -89,7 +89,7 @@ handleFileSelect = event => {
 	}
 }
 	componentDidMount(){ 
-		axios.get(url + ':5000/getsession').then(res => {
+		axios.get(url + ':' + port + '/getsession').then(res => {
 			this.setState({
 				code: res.data.code,
 				username: res.data.username,
@@ -98,12 +98,6 @@ handleFileSelect = event => {
 		})
 	}
 
-	// handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	console.log("tijiao");
-	// 	this.props.history.push('/user/' + this.state.username);
-	// }
-	
 	render(){
 		const {imgSrc} = this.state
 		const url_username = this.props.match.params.username;
@@ -115,7 +109,7 @@ handleFileSelect = event => {
 					this.state.username && this.state.username == url_username? 
 					<div>
 						<form method="post" 
-									action={url + ":5000/uploadandcropavatar" }
+									action={url + '+' + port + "/uploadandcropavatar" }
 									target="targetIfr" 
 									encType="multipart/form-data">
 							<div className="form-group">

@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { url } from '../url'
-import { whileStatement } from '@babel/types';
+import { url, port } from '../url'
 
 class Post extends React.Component {
 
@@ -33,7 +32,7 @@ class Post extends React.Component {
             content: this.state.content
         }
         console.log(post);
-        axios.post(url + ':5000/dopost',post).then(res => {
+        axios.post(url + '+' + port + '/dopost',post).then(res => {
             this.setState({
                 code: res.data.code
             })    
