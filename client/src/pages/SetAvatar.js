@@ -109,7 +109,7 @@ handleFileSelect = event => {
 					this.state.username && this.state.username == url_username? 
 					<div>
 						<form method="post" 
-									action={url + '+' + port + "/uploadandcropavatar" }
+									action={"/uploadandcropavatar" }
 									target="targetIfr" 
 									encType="multipart/form-data">
 							<div className="form-group">
