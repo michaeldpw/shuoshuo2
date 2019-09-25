@@ -257,3 +257,7 @@ input:focus::-webkit-input-placeholder {
         height: 0px;
     }
 }
+
+.mypost-container{
+    margin-top: 60px
+}

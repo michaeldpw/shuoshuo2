@@ -73,7 +73,7 @@ class PostList extends React.Component{
                <nav aria-label="Page navigation">
                     <ul className="pagination">
                         <li onClick={this.handlePrevious}>
-                            <a aria-label="Previous"  >
+                            <a aria-label="Previous">
                                 <span aria-hidden="true" >&laquo;</span>
                             </a>
                         </li>

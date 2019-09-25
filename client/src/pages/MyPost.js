@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import MyPostList from '../components/MyPostList'
+import Img from '../components/Img'
 
 
 export default class MyPost extends React.Component {
@@ -25,12 +26,25 @@ export default class MyPost extends React.Component {
 
     render(){
         return (
-            <div className="container">
+            <div className="container mypost-container">
                 {
                     this.state.username? 
-                    <MyPostList />
+                    <div className="list-group">
+                        <a className="list-group-item">
+                            <div className="comment-avatar">
+                                <Img src={"/avatar/" + '.jpg'} alt=""/>
+                            </div>
+                            <div className="username">
+                                <h4>item.username</h4> 
+                                <p>item.datetime</p>
+                            </div>
+                            <div className="content">
+                                <p>item.content</p>
+                            </div>                         
+                        </a>
+                    </div>
                     :
-                    <p>please sign in</p>
+                    <p>Please sign in...</p>
                 }
             </div>
         )
