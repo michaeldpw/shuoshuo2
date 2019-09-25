@@ -103,7 +103,7 @@ class PostList extends React.Component{
                             return (
                                  <a className="list-group-item" key={index}>
                                     <div className="comment-avatar">
-                                           <Img src={url + ':' + port + "/avatar/" + item.username + '.jpg'} alt=""/>
+                                           <Img src={"/avatar/" + item.username + '.jpg'} alt=""/>
                                     </div>
                                     <div className="username">
                                         <h4>{item.username}</h4> 
