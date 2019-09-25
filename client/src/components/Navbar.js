@@ -61,14 +61,13 @@ class Navbar extends React.Component{
                         {
                             this.state.username? 
                             <ul className="nav navbar-nav navbar-right">
-                            
                                 <li> <a>Welcome, {this.state.username}</a></li>
                                 <li className={className}> <NavLink to={"/user/" + this.state.link}>Profile</NavLink></li>
                                 <li><a onClick={this.handleLogOut}>Log Out</a></li>
                             </ul>:
                             <ul className="nav navbar-nav navbar-right">
-                                    <li className={className}> <NavLink to="/signin">Log In</NavLink></li> 
-                                    <li className={className}> <NavLink to="/signup">Create New Account</NavLink></li>
+                                <li className={className}> <NavLink to="/signin">Log In</NavLink></li> 
+                                <li className={className}> <NavLink to="/signup">Create New Account</NavLink></li>
                             </ul>
                         }
                     </div> 

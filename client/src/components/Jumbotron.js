@@ -4,6 +4,7 @@ import Post from './Post'
 import SignIn from './SignIn';
 import { url, port } from '../url'
 import defaultAvatar from './default.jpg'
+import Img from './Img'
 
 export default class Jumbotron extends React.Component{
 
@@ -35,7 +36,8 @@ export default class Jumbotron extends React.Component{
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
-                                <img src={"/avatar/" + this.state.avatar + '.jpg'} alt=""/>
+                                <Img src={"/avatar/" + this.state.username + '.jpg'} alt=""/>
+                                {/* <img src={"/avatar/" + this.state.avatar + '.jpg'} alt=""/> */}
                                 <p>{this.state.username}</p>
                             </div>
                             <div className="col-lg-6 col-lg-offset-1">
