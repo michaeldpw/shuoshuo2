@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios';
 import './components.css';
 import Img from './Img';
-import { url, port } from '../url'
 
 class PostList extends React.Component{
 

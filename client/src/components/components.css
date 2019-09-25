@@ -11,10 +11,7 @@
 }
 .navbar-brand {
     padding: 0  0;
-    
 }
-
-
 
 .navbar img {
     height: 50px;
@@ -25,17 +22,25 @@
 .navbar-default{
     background-color: #3b5998;
     background-image: linear-gradient(#4e69a2, #3b5998 50%)
-
-   
 }
 
 .navbar-default .navbar-brand {
-    color: white
+    color: white 
 }
 
 .navbar-default .navbar-nav>li>a {
-    color: white
+    color: white !important
 }
+
+.nav > li > a > span:hover{
+    /* text-decoration: underline; */
+    color: white !important;
+    padding-bottom: 5px;
+    border-bottom:  2px solid #fff;
+    transition: all .5s ease;
+  
+}
+
 .navbar{
     margin-bottom: 0px;
     height: 60px;

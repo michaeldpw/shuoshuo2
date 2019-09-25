@@ -3,7 +3,6 @@ import { NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './components.css';
 import brand from './brand.jpg'
-import { url, port } from '../url'
 axios.defaults.withCredentials = true;
 
 class Navbar extends React.Component{
@@ -36,8 +35,8 @@ class Navbar extends React.Component{
 
     render(){
     
-        var isActive = this.props.location.pathname == this.props.to
-        var className = isActive ? 'active' : '';
+        // var isActive = this.props.location.pathname == this.props.to
+        // var className = isActive ? 'active' : '';
         
         const logout = this.state.logout;
         if(logout == '1'){
@@ -54,20 +53,19 @@ class Navbar extends React.Component{
                     </div>
                     <div id="navbar" className="navbar-collapse collapse">
                         <ul className="nav navbar-nav navbar-item">
-                            <li className={className}><a href="#">Posts <span className="sr-only">(current)</span></a></li>
-                            <li className={className}><NavLink to="/mypost">My Post</NavLink></li>
-                            
+                            <li className=""><NavLink to="/"><span>Posts</span></NavLink></li>
+                            <li className=""><NavLink to="/mypost"><span>My Post</span></NavLink></li>        
                         </ul> 
                         {
                             this.state.username? 
                             <ul className="nav navbar-nav navbar-right">
                                 <li> <a>Welcome, {this.state.username}</a></li>
-                                <li className={className}> <NavLink to={"/user/" + this.state.link}>Profile</NavLink></li>
-                                <li><a onClick={this.handleLogOut}>Log Out</a></li>
+                                <li className=""> <NavLink to={"/user/" + this.state.link}><span>Profile</span></NavLink></li>
+                                <li><a onClick={this.handleLogOut}><span>Log Out</span></a></li>
                             </ul>:
                             <ul className="nav navbar-nav navbar-right">
-                                <li className={className}> <NavLink to="/signin">Log In</NavLink></li> 
-                                <li className={className}> <NavLink to="/signup">Create New Account</NavLink></li>
+                                <li className=""> <NavLink to="/signin"><span>Log In</span></NavLink></li> 
+                                <li className=""> <NavLink to="/signup"><span>Create New Account</span></NavLink></li>
                             </ul>
                         }
                     </div> 
