@@ -177,6 +177,17 @@ exports.allPost = function(req, res, next){
     })
 }
 
+exports.myPost = function (req, res, next){
+    var username = req.session.username;
+    db.find("posts", {"username": username}, function(err, result){
+        if(err){
+            res.json({"code": "-1", "result": result});
+            return;
+        }
+        res.json({"result": result})
+    })
+}
+
 exports.count = function(req, res, next){
     db.count("posts", function(err, result){
         if(err){

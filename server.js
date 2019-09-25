@@ -40,6 +40,7 @@ app.post('/checklogin', router.checklogin);
 app.post('/doregister', router.doRegister);
 app.post('/uploadandcropavatar', router.uploadAndCropAvatar);
 app.post('/dopost', router.doPost);
+app.get('/mypost', router.myPost);
 app.get('/allpost', router.allPost);
 app.get('/count', router.count);
 app.get('/logout', router.doLogOut);
