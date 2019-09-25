@@ -13,7 +13,7 @@ class PostList extends React.Component{
     }
 
     getCount = () => {
-        axios.get(url + ':' + port + '/count').then(res => {
+        axios.get('/count').then(res => {
             this.setState({
                 total: res.data.count
             })
@@ -21,7 +21,7 @@ class PostList extends React.Component{
     }
 
     getData = async (page) => {
-        const response = await fetch(`${url}:${port}/allpost?page=${page}`, {
+        const response = await fetch(`/allpost?page=${page}`, {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
