@@ -14,7 +14,7 @@ class UserPage extends React.Component{
     }
 
     componentDidMount(){ 
-        axios.get(url + ':5000/getsession').then(res => {
+        axios.get('/getsession').then(res => {
             this.setState({
                 code: res.data.code,
                 username: res.data.username,
@@ -34,7 +34,7 @@ class UserPage extends React.Component{
                     this.state.username && this.state.username == url_username? 
                     <div> 
                         <NavLink to={"/setavatar/" + this.state.username}>
-                        <img src={url + ':' + port + "/avatar/" + this.state.avatar + '.jpg'} alt=""/>
+                        <img src={"/avatar/" + this.state.avatar + '.jpg'} alt=""/>
                         </NavLink>
                         {this.state.username}
                     </div>:<h1>Sorry {url_username}, you need to <NavLink to="/signin">sign in</NavLink>.</h1>

@@ -16,7 +16,7 @@ class Navbar extends React.Component{
 
     componentDidMount(){
 
-        axios.get(url + ':' + port + '/getsession').then(res => {
+        axios.get('/getsession').then(res => {
             console.log(res.data);
             this.setState({
                 username: res.data.username,
@@ -27,7 +27,7 @@ class Navbar extends React.Component{
     }
 
     handleLogOut = () => {
-        axios.get(url + ':' + port + '/logout').then(res => {
+        axios.get('/logout').then(res => {
             this.setState({
                 logout:res.data.logout
             })

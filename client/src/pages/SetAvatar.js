@@ -89,7 +89,7 @@ handleFileSelect = event => {
 	}
 }
 	componentDidMount(){ 
-		axios.get(url + ':' + port + '/getsession').then(res => {
+		axios.get('/getsession').then(res => {
 			this.setState({
 				code: res.data.code,
 				username: res.data.username,

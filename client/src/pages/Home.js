@@ -1,8 +1,6 @@
 import React from 'react';
 import './pages.css';
-
 import PostList from '../components/PostList';
-
 import Jumbotron from '../components/Jumbotron';
 
 class Home extends React.Component{

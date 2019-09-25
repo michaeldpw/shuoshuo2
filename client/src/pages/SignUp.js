@@ -25,7 +25,7 @@ class SignUp extends React.Component{
             password: this.state.password
         }
         //console.log(user);
-        axios.post(url + ':' + port +  '/doregister',user).then(res => {
+        axios.post('/doregister',user).then(res => {
             //console.log(res.data);
                 this.setState({
                     code: res.data

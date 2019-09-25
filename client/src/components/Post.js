@@ -32,7 +32,7 @@ class Post extends React.Component {
             content: this.state.content
         }
         console.log(post);
-        axios.post(url + '+' + port + '/dopost',post).then(res => {
+        axios.post('/dopost',post).then(res => {
             this.setState({
                 code: res.data.code
             })    

@@ -30,7 +30,7 @@ class SignIn extends React.Component{
             password: this.state.password
         }
         console.log(user);
-        axios.post(url + ':' +  port + '/checklogin',user).then(res => {
+        axios.post('/checklogin',user).then(res => {
             //console.log(res.data);
             this.setState({
                 code: res.data.code
