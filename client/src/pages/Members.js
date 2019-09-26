@@ -34,7 +34,7 @@ export default class Members extends React.Component {
 
                 {
                     this.state.loading?
-                    <Loader type="ThreeDots" color="#e87110" height="100" width="100" />: (
+                    <Loader type="ThreeDots" style={{"display": "flex", "justify-content": "center"}} color="#e87110" height="100" width="100" />: (
                         this.state.username? 
                         <MemberList  />
                         :
