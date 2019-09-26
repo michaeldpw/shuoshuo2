@@ -3,13 +3,15 @@ import axios from 'axios';
 import './components.css';
 import Img from './Img';
 import { url } from '../url'
+import Loader from 'react-loader-spinner'
 
 class PostList extends React.Component{
 
     state = {
         post: [],
         total: 0,
-        currentPage: 1
+        currentPage: 1,
+        loading: false
     }
 
     getCount = () => {
@@ -33,14 +35,18 @@ class PostList extends React.Component{
       
           this.setState({
             post: data.result,
-            currentPage: data.page + 1
+            currentPage: data.page + 1,
+            loading: false
           });
     }
 
     componentDidMount(){
-        this.getCount();
-        this.getData(0); //0是后端的第一页
-        console.log(process.env.NODE_ENV)
+        this.setState({loading: true}, () => {
+            this.getCount();
+            this.getData(0);
+        })
+         //0是后端的第一页
+        
     }
 
     handlePrevious = () => {
@@ -98,13 +104,24 @@ class PostList extends React.Component{
                         </li>
                     </ul>
                 </nav>
+
+                {
+                  this.state.loading? 
+                  <Loader type="ThreeDots" 
+                          style={{"display": "flex", "justify-content": "center"}} 
+                          color="#e87110" 
+                          height="100" 
+                          width="100" 
+                  />
+                  :
+                
                <div className="list-group">
                     {
                         this.state.post.map((item, index) => {
                             return (
                                  <a className="list-group-item" key={index}>
                                     <div className="comment-avatar">
-                                           <Img src={"/avatar/" + item.username + '.jpg'} alt=""/>
+                                           <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
                                     </div>
                                     <div className="username">
                                         <h4>{item.username}</h4> 
@@ -120,6 +137,7 @@ class PostList extends React.Component{
                         })
                     }
                 </div>
+                }
             </div> 
             
         )

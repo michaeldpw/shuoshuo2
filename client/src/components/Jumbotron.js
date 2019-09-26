@@ -11,7 +11,14 @@ export default class Jumbotron extends React.Component{
     state = {
          username:'',
          sessioncode:'',
-         avatar:''
+         avatar:'',
+         show: true
+    }
+
+    togglePanel = () => {
+		this.setState({
+			show: !this.state.show
+		})
     }
 
     componentDidMount(){
@@ -30,7 +37,7 @@ export default class Jumbotron extends React.Component{
     render(){
         return (
             <div className={this.props.isShow}>
-              <div className="jumbotron">
+              <div className={this.state.show? 'jumbotron show' : 'jumbotron hide'}>
                 { 
                     this.state.username? 
                     <div className="container">
@@ -44,7 +51,8 @@ export default class Jumbotron extends React.Component{
                                 <Post author={this.state.username}/>
                             </div>
                         </div>                       
-                    </div>:
+                    </div>
+                    :
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
@@ -54,7 +62,15 @@ export default class Jumbotron extends React.Component{
                            <SignIn/>
                         </div>           
                     </div>   
-			    }
+                }
+               
+              </div> 
+              <div onClick={this.togglePanel} className='collapse-header'>
+                    {
+                        this.state.show? <span  onClick={this.togglePanel} style={{color:"#cccccc"}}className="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+                        :
+                        <span  style={{color:"#cccccc"}}className="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    }
               </div>
             </div>
         )
