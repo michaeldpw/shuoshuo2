@@ -40,7 +40,7 @@ export default class MemberList extends React.Component {
                     return (
                          <a className="list-group-item" key={index}>
                             <div className="comment-avatar">
-                                   <Img src={"/avatar/" + item.username + '.jpg'} alt=""/>
+                                   <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
                             </div>
                             <div className="username">
                                 <h4>{item.username}</h4> 

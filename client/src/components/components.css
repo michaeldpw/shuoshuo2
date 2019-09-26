@@ -9,6 +9,19 @@
     height: 50px;
     border-radius: 25px;
 }
+
+#pagination-nav {
+    height: 70px;
+    display: flex;
+    justify-content: center
+}
+
+.list-group-item {
+    margin-top: 10px
+}
+.content {
+    margin-top: 20px
+}
 .navbar-brand {
     padding: 0  0;
 }

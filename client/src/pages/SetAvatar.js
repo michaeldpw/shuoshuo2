@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './pages.css';
 import ReactCrop from 'react-image-crop';
 import "react-image-crop/dist/ReactCrop.css";
+import Loader from 'react-loader-spinner'
 import { url } from '../url'
 
 import {extractImageFileExtensionFromBase64,
@@ -20,6 +21,7 @@ class SetAvatar extends React.Component{
 			this.imagePreviewCanvasRef = React.createRef()
 			this.fileInputRef = React.createRef()	
 			this.state = {
+					loading: false,
 					imgSrc: null,
 					imgSrcExt: null,
 					src: null,
@@ -89,13 +91,17 @@ handleFileSelect = event => {
 	}
 }
 	componentDidMount(){ 
-		axios.get(url + '/getsession').then(res => {
-			this.setState({
-				code: res.data.code,
-				username: res.data.username,
-				avatar: res.data.avatar
+		this.setState({loading: true}, () => {
+			axios.get(url + '/getsession').then(res => {
+				this.setState({
+					code: res.data.code,
+					username: res.data.username,
+					avatar: res.data.avatar,
+					loading: false
+				})
 			})
 		})
+		
 	}
 
 	render(){
@@ -104,8 +110,16 @@ handleFileSelect = event => {
 	  
 		return (
 		   
-			<div className="container avatar-container">
+			<div className="avatar-container">
 				{
+					this.state.loading?
+					<Loader style={{"display": "flex", "justify-content": "center", "margin": "auto"}}
+							type="ThreeDots" 
+							color="#e87110" 
+							height="100" 
+							width="100" />
+					:
+					(
 					this.state.username && this.state.username == url_username? 
 					<div>
 						<form method="post" 
@@ -138,7 +152,9 @@ handleFileSelect = event => {
               </div>
 			    </div>
 					:<h1>Sorry, you need to <NavLink to="/signin">sign in</NavLink>.</h1>
+				)
 				}
+				
 			</div>
 		)
 	}

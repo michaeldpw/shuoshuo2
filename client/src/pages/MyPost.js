@@ -30,10 +30,14 @@ export default class MyPost extends React.Component {
 
     render(){
         return (
-            <div className="container mypost-container">
+            <div className="mypost-container">
                 {
                     this.state.loading?
-                    <Loader style={{"display": "flex", "justify-content": "center", "margin": "auto"}}type="ThreeDots" color="#e87110" height="100" width="100" />
+                    <Loader style={{"display": "flex", "justify-content": "center", "margin": "auto"}}
+                            type="ThreeDots" 
+                            color="#e87110" 
+                            height="100" 
+                            width="100" />
                     : (
                         this.state.username? 
                         <MyPostList />

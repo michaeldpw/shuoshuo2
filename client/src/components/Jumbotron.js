@@ -67,9 +67,14 @@ export default class Jumbotron extends React.Component{
               </div> 
               <div onClick={this.togglePanel} className='collapse-header'>
                     {
-                        this.state.show? <span  onClick={this.togglePanel} style={{color:"#cccccc"}}className="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+                        this.state.show? 
+                        <span  style={{color:"#cccccc"}}
+                                className="glyphicon glyphicon-menu-up" 
+                                aria-hidden="true"></span>
                         :
-                        <span  style={{color:"#cccccc"}}className="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                        <span  style={{color:"#cccccc"}}
+                                className="glyphicon glyphicon-menu-hamburger" 
+                                aria-hidden="true"></span>
                     }
               </div>
             </div>
