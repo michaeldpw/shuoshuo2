@@ -1,5 +1,6 @@
 .home-container{
-    margin-top: 80px
+    margin-top: 80px;
+    height: calc(100vh - 80px)
 }
 
 .signup-container{
@@ -243,4 +244,8 @@ input:focus::-webkit-input-placeholder {
     justify-content: center;
     align-items: center;
     height: calc(100vh - 80px);
+}
+
+.App{
+    /* background-color: #4267b2 */
 }
