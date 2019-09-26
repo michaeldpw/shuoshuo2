@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import './components.css';
 import Img from './Img';
+import { url } from '../url'
 
 class PostList extends React.Component{
 
@@ -20,7 +21,7 @@ class PostList extends React.Component{
     }
 
     getData = async (page) => {
-        const response = await fetch(`/allpost?page=${page}`, {
+        const response = await fetch(`${url}/allpost?page=${page}`, {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
