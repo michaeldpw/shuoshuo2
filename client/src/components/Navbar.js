@@ -55,20 +55,51 @@ class Navbar extends React.Component{
 			  </div>
 			  <div className="navbar-collapse collapse">
 				<ul className="nav navbar-nav navbar-item">
-				    <li className="hvr-underline-from-center"><NavLink to="/">Posts</NavLink></li>
-				    <li className="hvr-underline-from-center "><NavLink to="/mypost">My Posts</NavLink></li>
-				    <li className="hvr-underline-from-center"><NavLink to="/members">Team Members</NavLink></li>                
+				    <li className="hvr-underline-from-center">
+						<NavLink to="/">
+							<span className="glyphicon glyphicon-home" aria-hidden="true"></span>
+							<p>Posts</p>
+						</NavLink></li>
+				    <li className="hvr-underline-from-center ">
+						<NavLink to="/mypost">
+							<span className="glyphicon glyphicon-tags" aria-hidden="true"></span>
+							<p> My Posts</p>
+						</NavLink></li>
+				    <li className="hvr-underline-from-center">
+						<NavLink to="/members">
+							<span className="glyphicon glyphicon-th" aria-hidden="true"></span>
+							<p> Teammates</p>
+						</NavLink>
+					</li>                
 				</ul> 
 				{
 				    this.state.username? 
 				    <ul className="nav navbar-nav navbar-right">
-					  <li> <a>Welcome, {this.state.username}</a></li>
-					  <li className="hvr-underline-from-center"> <NavLink to={"/user/" + this.state.link}>Profile</NavLink></li>
-					  <li className="hvr-underline-from-center"><a onClick={this.handleLogOut}>Log Out</a></li>
+					  <li className="hvr-underline-from-center"> 
+					  	<NavLink to={"/user/" + this.state.link}>
+						  	<span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+							<p>Profile</p>
+						</NavLink>
+					  </li>
+					  <li className="hvr-underline-from-center">
+						  <a onClick={this.handleLogOut}>
+						  	<span className="glyphicon glyphicon-off" aria-hidden="true"></span>
+							<p>Log Out</p>
+						  </a>
+					  </li>
 				    </ul>:
 				    <ul className="nav navbar-nav navbar-right">
-					  <li className="hvr-underline-from-center"> <NavLink to="/signin">Log In</NavLink></li> 
-					  <li className="hvr-underline-from-center"> <NavLink to="/signup">Create New Account</NavLink></li>
+					  <li className="hvr-underline-from-center"> 
+					  	<NavLink to="/signin">
+						  	<span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
+							<p>Log In</p>
+						</NavLink>
+					  </li> 
+					  <li> 
+					  	<NavLink to="/signup">
+						  	<button className="signup-button">Create New Account</button>
+						</NavLink>
+					  </li>
 				    </ul>
 				}
 			  </div> 

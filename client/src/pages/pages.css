@@ -1,9 +1,9 @@
 .home-container{
-    margin-top: 60px
+    margin-top: 80px
 }
 
 .signup-container{
-    margin-top: 60px;
+    margin-top: 80px;
     background-image: linear-gradient(white, #D3D8E8);
     height: 536px;
     width: 100%;
@@ -173,8 +173,8 @@ input:focus::-webkit-input-placeholder {
 }
         
 .user-container{
-    margin-top: 60px;
-    height: calc(100vh - 60px);
+    margin-top: 80px;
+    height: calc(100vh - 80px);
     width: 50%;
     display: flex; 
     justify-content: center;
@@ -205,7 +205,7 @@ input:focus::-webkit-input-placeholder {
 
 }
 .avatar-container{
-    margin-top: 60px
+    margin-top: 80px
 }
 
 .user-panel {
@@ -238,9 +238,9 @@ input:focus::-webkit-input-placeholder {
 
 
 .mypost-container{
-    margin-top: 60px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 80px);
 }
