@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import MyPostList from '../components/MyPostList'
+import LoadingSpinner from '../components/LoadingSpinner';
 
 
 export default class MyPost extends React.Component {
@@ -8,18 +9,21 @@ export default class MyPost extends React.Component {
     state = {
         username: '',
         sessioncode: '',
-        avatar: ''
+        avatar: '',
+        loading: false
     }
 
     componentDidMount(){
-        axios.get('/getsession').then(res => {
-            this.setState({
-                username: res.data.username,
-                sessioncode: res.data.code,
-                avatar: res.data.avatar
-            })
-            console.log(this.state);
-        })
+        this.setState({loading: true}, () => {
+            axios.get('/getsession').then(res => {
+                this.setState({
+                    loading: false,
+                    username: res.data.username,
+                    sessioncode: res.data.code,
+                    avatar: res.data.avatar
+                })
+           })
+        })  
     }
 
 
@@ -27,10 +31,14 @@ export default class MyPost extends React.Component {
         return (
             <div className="container mypost-container">
                 {
-                    this.state.username? 
-                    <MyPostList />
-                    :
-                    <p>Please sign in...</p>
+                    this.state.loading?
+                    <LoadingSpinner />
+                    : (
+                        this.state.username? 
+                        <MyPostList />
+                        :
+                        <p>Please sign in...</p>
+                    )
                 }
             </div>
         )
