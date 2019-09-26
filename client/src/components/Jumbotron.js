@@ -16,7 +16,7 @@ export default class Jumbotron extends React.Component{
 
     componentDidMount(){
         console.log('componentdidmount');
-        axios.get('/getsession').then(res => {
+        axios.get(url + '/getsession').then(res => {
             //console.log(res.data);
             this.setState({
                 username: res.data.username,
@@ -36,7 +36,7 @@ export default class Jumbotron extends React.Component{
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
-                                <Img src={"/avatar/" + this.state.username + '.jpg'} alt=""/>
+                                <Img src={url + "/avatar/" + this.state.username + '.jpg'} alt=""/>
                                 {/* <img src={"/avatar/" + this.state.avatar + '.jpg'} alt=""/> */}
                                 <p>{this.state.username}</p>
                             </div>

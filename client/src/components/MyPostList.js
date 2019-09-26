@@ -1,5 +1,6 @@
 import React from 'react'
 import Img from './Img'
+import { url } from '../url'
 
 export default class MyPostList extends React.Component {
     
@@ -10,7 +11,7 @@ export default class MyPostList extends React.Component {
     }
 
     getData = async (page) => {
-        const response = await fetch(`/mypost`, {
+        const response = await fetch(`${url}/mypost`, {
             method: 'GET',
             headers: {
               'Accept': 'application/json',
@@ -39,7 +40,7 @@ export default class MyPostList extends React.Component {
                     return (
                          <a className="list-group-item" key={index}>
                             <div className="comment-avatar">
-                                   <Img src={"/avatar/" + item.username + '.jpg'} alt=""/>
+                                   <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
                             </div>
                             <div className="username">
                                 <h4>{item.username}</h4> 

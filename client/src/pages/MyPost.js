@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import MyPostList from '../components/MyPostList'
 import Loader from 'react-loader-spinner';
+import { url } from '../url'
 
 
 export default class MyPost extends React.Component {
@@ -15,7 +16,7 @@ export default class MyPost extends React.Component {
 
     componentDidMount(){
         this.setState({loading: true}, () => {
-            axios.get('/getsession').then(res => {
+            axios.get(url + '/getsession').then(res => {
                 this.setState({
                     loading: false,
                     username: res.data.username,

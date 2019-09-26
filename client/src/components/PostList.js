@@ -13,7 +13,7 @@ class PostList extends React.Component{
     }
 
     getCount = () => {
-        axios.get('/count').then(res => {
+        axios.get(url + '/count').then(res => {
             this.setState({
                 total: res.data.count
             })
@@ -40,6 +40,7 @@ class PostList extends React.Component{
     componentDidMount(){
         this.getCount();
         this.getData(0); //0是后端的第一页
+        console.log(process.env.NODE_ENV)
     }
 
     handlePrevious = () => {

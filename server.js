@@ -6,7 +6,7 @@ var router = require('./controller/router');
 var path = require('path');
 var app = express();
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 9000 ;
 
 
 app.use(express.static("./public"));
@@ -54,4 +54,6 @@ if(process.env.NODE_ENV === 'production'){
     // });
 }
 
-app.listen(port);
+app.listen(port, ()=>{
+    console.log(port);
+});

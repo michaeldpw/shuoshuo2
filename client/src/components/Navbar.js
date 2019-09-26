@@ -3,6 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import './components.css';
 import brand from './brand.jpg'
+import { url } from '../url'
 
 axios.defaults.withCredentials = true;
 
@@ -16,7 +17,7 @@ class Navbar extends React.Component{
 
     componentDidMount(){
 
-	  axios.get('/getsession').then(res => {
+	  axios.get(url + '/getsession').then(res => {
 		console.log(res.data);
 		this.setState({
 		    username: res.data.username,
@@ -27,7 +28,7 @@ class Navbar extends React.Component{
     }
 
     handleLogOut = () => {
-	  axios.get('/logout').then(res => {
+	  axios.get(url + '/logout').then(res => {
 		this.setState({
 		    logout:res.data.logout
 		})

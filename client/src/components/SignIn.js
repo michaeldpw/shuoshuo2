@@ -26,7 +26,7 @@ class SignIn extends React.Component{
         }
         console.log(user);
         //console.log(url);
-        axios.post('/checklogin',user).then(res => {
+        axios.post(url + '/checklogin',user).then(res => {
             console.log(res.data);
             this.setState({
                 code: res.data.code

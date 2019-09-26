@@ -1,5 +1,6 @@
 import React from 'react'
 import Img from './Img'
+import { url } from '../url'
 
 export default class MemberList extends React.Component {
     
@@ -10,7 +11,7 @@ export default class MemberList extends React.Component {
     }
 
     getAllUsers = async (page) => {
-        const response = await fetch(`/alluser`, {
+        const response = await fetch(`${url}/alluser`, {
             method: 'GET',
             headers: {
               'Accept': 'application/json',

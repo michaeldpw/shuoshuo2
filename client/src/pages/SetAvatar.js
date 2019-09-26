@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import './pages.css';
 import ReactCrop from 'react-image-crop';
 import "react-image-crop/dist/ReactCrop.css";
-import { url, port } from '../url'
+import { url } from '../url'
 
 import {extractImageFileExtensionFromBase64,
 	image64toCanvasRef} from '../base64'
@@ -89,7 +89,7 @@ handleFileSelect = event => {
 	}
 }
 	componentDidMount(){ 
-		axios.get('/getsession').then(res => {
+		axios.get(url + '/getsession').then(res => {
 			this.setState({
 				code: res.data.code,
 				username: res.data.username,
