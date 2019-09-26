@@ -4,8 +4,8 @@ import Img from './Img'
 export default class MemberList extends React.Component {
     
     state = {
-        users: []
-        // total: 0,
+        users: [],
+        total: 0
         // currentPage: 1
     }
 

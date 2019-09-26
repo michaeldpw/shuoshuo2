@@ -25,7 +25,7 @@ export default class Members extends React.Component {
             <div className="container mypost-container">
                 {
                     this.state.username? 
-                    <MemberList />
+                    <MemberList  />
                     :
                     <p>Please sign in...</p>
                 }
