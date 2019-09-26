@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import MyPostList from '../components/MyPostList'
-import LoadingSpinner from '../components/LoadingSpinner';
+import Loader from 'react-loader-spinner';
 
 
 export default class MyPost extends React.Component {
@@ -32,7 +32,7 @@ export default class MyPost extends React.Component {
             <div className="container mypost-container">
                 {
                     this.state.loading?
-                    <LoadingSpinner />
+                    <Loader type="ThreeDots" color="#e87110" height="100" width="100" />
                     : (
                         this.state.username? 
                         <MyPostList />
