@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import Img from '../components/Img'
+import MemberList from '../components/MemberList';
 
 export default class Members extends React.Component {
 
@@ -25,20 +25,7 @@ export default class Members extends React.Component {
             <div className="container mypost-container">
                 {
                     this.state.username? 
-                    <div className="list-group">
-                        <a className="list-group-item">
-                            <div className="comment-avatar">
-                                <Img src={"/avatar/" + '.jpg'} alt=""/>
-                            </div>
-                            <div className="username">
-                                <h4>item.username</h4> 
-                                <p>item.datetime</p>
-                            </div>
-                            <div className="content">
-                                <p>item.content</p>
-                            </div>                         
-                        </a>
-                    </div>
+                    <MemberList />
                     :
                     <p>Please sign in...</p>
                 }
