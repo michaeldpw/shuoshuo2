@@ -11,7 +11,8 @@ export default class Members extends React.Component {
         username: '',
         sessioncode: '',
         avatar: '',
-        loading: false
+        loading: false,
+        redirect: false
     }
 
     componentDidMount(){
@@ -23,7 +24,9 @@ export default class Members extends React.Component {
                     sessioncode: res.data.code,
                     avatar: res.data.avatar
                 })
-           })
+           }).then(() => this.setState({
+            redirect: this.state.username? false: true
+        }))
         })  
     }
 
@@ -36,8 +39,14 @@ export default class Members extends React.Component {
 
                 {
                     this.state.loading?
-                    <Loader type="ThreeDots" style={{"display": "flex", "justify-content": "center"}} color="#e87110" height="100" width="100" />: (
-                        this.state.username? 
+                    <Loader type="ThreeDots" 
+                            style={{"display": "flex", "justify-content": "center"}} 
+                            color="#e87110" 
+                            height="100" 
+                            width="100" />
+                    : 
+                    (
+                        !this.state.redirect? 
                         <MemberList  />
                         :
                         <Redirect to='/signin' />

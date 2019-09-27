@@ -11,7 +11,8 @@ export default class MyPost extends React.Component {
         username: '',
         sessioncode: '',
         avatar: '',
-        loading: false
+        loading: false,
+        redirect: false
     }
 
     componentDidMount(){
@@ -23,12 +24,19 @@ export default class MyPost extends React.Component {
                     sessioncode: res.data.code,
                     avatar: res.data.avatar
                 })
-           })
+           }).then(() => this.setState({
+               redirect: this.state.username? false: true
+           }))
         })  
     }
 
 
     render(){
+        
+        // if (!this.state.redirect){
+        //     console.log(this.state);
+        //     return <Redirect to="/signin" />
+        // }
         return (
             <div className="mypost-container">
                 {
@@ -39,10 +47,11 @@ export default class MyPost extends React.Component {
                             height="100" 
                             width="100" />
                     : (
-                        this.state.username? 
+                        !this.state.redirect ? 
                         <MyPostList />
                         :
                         <Redirect to='/signin' />
+                        // <p>log in please</p>
                     )
                 }
             </div>
