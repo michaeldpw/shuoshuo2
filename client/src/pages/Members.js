@@ -3,6 +3,7 @@ import axios from 'axios'
 import MemberList from '../components/MemberList';
 import Loader from 'react-loader-spinner';
 import { url } from '../url'
+import { Redirect } from 'react-router-dom'
 
 export default class Members extends React.Component {
 
@@ -39,7 +40,7 @@ export default class Members extends React.Component {
                         this.state.username? 
                         <MemberList  />
                         :
-                        <p>Please sign in...</p>
+                        <Redirect to='/signin' />
                     )
                 }
             </div>

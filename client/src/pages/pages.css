@@ -1,12 +1,13 @@
 .home-container{
     margin-top: 60px;
     /* height: 100vh; */
+    
 }
 
 .signup-container{
     margin-top: 60px;
     background-image: linear-gradient(white, #D3D8E8);
-    height: 536px;
+    height: 636px;
     width: 100%;
     display: flex;
     justify-content: center
@@ -75,7 +76,7 @@
 
 .signin-container{
     background-image: linear-gradient(white, #D3D8E8);
-    height: 536px;
+    height: 636px;
     width: 100%;
     margin-top: 60px;
     display: flex;

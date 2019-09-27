@@ -3,7 +3,7 @@ import axios from 'axios'
 import MyPostList from '../components/MyPostList'
 import Loader from 'react-loader-spinner';
 import { url } from '../url'
-
+import { Redirect } from 'react-router-dom'
 
 export default class MyPost extends React.Component {
 
@@ -42,7 +42,7 @@ export default class MyPost extends React.Component {
                         this.state.username? 
                         <MyPostList />
                         :
-                        <p>Please sign in...</p>
+                        <Redirect to='/signin' />
                     )
                 }
             </div>

@@ -85,10 +85,10 @@ class Navbar extends React.Component{
 				    <ul className="nav navbar-nav navbar-right">
 					  <li className="hvr-underline-from-center"> 
 					  	<NavLink to={"/user/" + this.state.link}>
-						  <Icon type="profile" 
+						  <Icon type="setting" 
                                 theme="outlined" 
                                 style={{ fontSize: '24px', color: '#c7d1d8' }}/>
-							<p>Profile</p>
+							<p>Setting</p>
 						</NavLink>
 					  </li>
 					  <li className="hvr-underline-from-center">
