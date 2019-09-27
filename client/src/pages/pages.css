@@ -1,6 +1,6 @@
 .home-container{
     margin-top: 80px;
-    height: calc(100vh - 80px)
+    height: 100vh;
 }
 
 .signup-container{

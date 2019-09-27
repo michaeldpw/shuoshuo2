@@ -89,13 +89,13 @@ class Navbar extends React.Component{
 					  </li>
 				    </ul>:
 				    <ul className="nav navbar-nav navbar-right">
-					  <li className="hvr-underline-from-center"> 
+					  <li className="hvr-underline-from-center log-in"> 
 					  	<NavLink to="/signin">
 						  	<span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
 							<p>Log In</p>
 						</NavLink>
 					  </li> 
-					  <li> 
+					  <li className="new-account-li"> 
 					  	<NavLink to="/signup">
 						  	<button className="signup-button">Create New Account</button>
 						</NavLink>
