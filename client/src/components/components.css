@@ -249,7 +249,8 @@ a.list-group-item:hover{
 
  .hvr-underline-from-center p {
      margin-bottom: 0px;
-     font-size: 12px
+     font-size: 12px;
+     color: #c7d1d8
  }
 
  .hvr-underline-from-center span {
