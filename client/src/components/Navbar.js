@@ -61,21 +61,21 @@ class Navbar extends React.Component{
 						<NavLink to="/">
 							<Icon type="home" 
                                 theme="outlined" 
-                                style={{ fontSize: '24px', color: 'ddd' }}/>
+                                style={{ fontSize: '24px', color: '#e1f2fc' }}/>
 							<p>Posts</p>
 						</NavLink></li>
 				    <li className="hvr-underline-from-center ">
 						<NavLink to="/mypost">
 							<Icon type="solution" 
                                 theme="outlined" 
-                                style={{ fontSize: '24px', color: 'ddd' }}/>	
+                                style={{ fontSize: '24px', color: '#e1f2fc' }}/>	
 							<p> My Posts</p>
 						</NavLink></li>
 				    <li className="hvr-underline-from-center">
 						<NavLink to="/members">
 							<Icon type="team" 
                                 theme="outlined" 
-                                style={{ fontSize: '24px', color: 'ddd' }}/>
+                                style={{ fontSize: '24px', color: '#e1f2fc' }}/>
 							<p> Teammates</p>
 						</NavLink>
 					</li>                
@@ -87,7 +87,7 @@ class Navbar extends React.Component{
 					  	<NavLink to={"/user/" + this.state.link}>
 						  <Icon type="profile" 
                                 theme="outlined" 
-                                style={{ fontSize: '24px', color: 'ddd' }}/>
+                                style={{ fontSize: '24px', color: '#e1f2fc' }}/>
 							<p>Profile</p>
 						</NavLink>
 					  </li>
@@ -95,7 +95,7 @@ class Navbar extends React.Component{
 						  <a onClick={this.handleLogOut}>
 						  	<Icon type="logout" 
                                 theme="outlined" 
-                                style={{ fontSize: '24px', color: 'ddd' }}/>
+                                style={{ fontSize: '24px', color: '#e1f2fc' }}/>
 							<p>Log Out</p>
 						  </a>
 					  </li>
@@ -105,7 +105,7 @@ class Navbar extends React.Component{
 					  	<NavLink to="/signin">
 						  <Icon type="lock" 
                                 theme="outlined" 
-                                style={{ fontSize: '24px', color: 'ddd' }}/>
+                                style={{ fontSize: '24px', color: '#e1f2fc' }}/>
 							<p>Log In</p>
 						</NavLink>
 					  </li> 

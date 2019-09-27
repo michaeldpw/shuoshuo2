@@ -44,8 +44,8 @@ a.list-group-item:hover{
 }
 
 .navbar-default{
-    background-color: #3b5998;
-    background-image: linear-gradient(#4e69a2, #3b5998 50%)
+    background-color: #283e4a;
+    /* background-image: linear-gradient(#4e69a2, #3b5998 50%) */
 }
 
 .navbar-default .navbar-brand {
@@ -56,6 +56,9 @@ a.list-group-item:hover{
     color: white !important
 }
 
+.hvr-underline-from-center p{
+    color: #e1f2fc
+}
 
 
 .hvr-underline-from-center {
@@ -267,7 +270,7 @@ a.list-group-item:hover{
 }
 
 .log-in {
-    border-left: 1px solid #4e69a2
+    border-left: 1px solid #5c6f7c
 }
 
 .new-account-li {
