@@ -1,10 +1,10 @@
 .home-container{
-    margin-top: 80px;
-    height: 100vh;
+    margin-top: 60px;
+    /* height: 100vh; */
 }
 
 .signup-container{
-    margin-top: 80px;
+    margin-top: 60px;
     background-image: linear-gradient(white, #D3D8E8);
     height: 536px;
     width: 100%;
@@ -174,7 +174,7 @@ input:focus::-webkit-input-placeholder {
 }
         
 .user-container{
-    margin-top: 80px;
+    margin-top: 60px;
     height: calc(100vh - 80px);
     width: 50%;
     display: flex; 
@@ -206,7 +206,7 @@ input:focus::-webkit-input-placeholder {
 
 }
 .avatar-container{
-    margin-top: 80px
+    margin-top: 60px
 }
 
 .user-panel {
@@ -239,7 +239,7 @@ input:focus::-webkit-input-placeholder {
 
 
 .mypost-container{
-    margin-top: 80px;
+    margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
