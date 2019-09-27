@@ -4,6 +4,8 @@ import './components.css';
 import Img from './Img';
 import { url } from '../url'
 import Loader from 'react-loader-spinner'
+import { Icon } from 'antd';
+import 'antd/dist/antd.css'
 
 class PostList extends React.Component{
 
@@ -129,6 +131,20 @@ class PostList extends React.Component{
                                     </div>
                                     <div className="content">
                                         <p>{item.content}</p>
+                                    </div>
+                                    <div className="comment-like">
+                                        <div className="comment-tab">
+                                            <Icon type="message" 
+                                                theme="outlined" 
+                                                style={{ fontSize: '18px', color: 'ddd' }}/>
+                                            <span style={{"fontSize": "16px"}}> Comment</span>
+                                        </div>
+                                        <div className="like-tab">
+                                            <Icon type="like" 
+                                                    theme="outlined" 
+                                                    style={{ fontSize: '18px', color: 'ddd' }}/>
+                                                <span style={{"fontSize": "16px"}}> Like</span>
+                                            </div>
                                     </div>
                                    
                                    

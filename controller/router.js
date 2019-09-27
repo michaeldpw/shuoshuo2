@@ -153,7 +153,7 @@ exports.doPost = function(req, res, next){
     var content = req.body.content;
     db.insertOne("posts", {
         "username": username,
-        "datetime": dateformat(),
+        "datetime": dateformat(now, "isoDateTime"),
         "content": content,
     }, function(err, result){
         if(err){

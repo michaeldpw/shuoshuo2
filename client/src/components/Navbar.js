@@ -4,6 +4,8 @@ import axios from 'axios';
 import './components.css';
 import brand from './brand.jpg'
 import { url } from '../url'
+import { Icon } from 'antd';
+import 'antd/dist/antd.css'
 
 axios.defaults.withCredentials = true;
 
@@ -57,17 +59,23 @@ class Navbar extends React.Component{
 				<ul className="nav navbar-nav navbar-item">
 				    <li className="hvr-underline-from-center">
 						<NavLink to="/">
-							<span className="glyphicon glyphicon-home" aria-hidden="true"></span>
+							<Icon type="home" 
+                                theme="outlined" 
+                                style={{ fontSize: '24px', color: 'ddd' }}/>
 							<p>Posts</p>
 						</NavLink></li>
 				    <li className="hvr-underline-from-center ">
 						<NavLink to="/mypost">
-							<span className="glyphicon glyphicon-tags" aria-hidden="true"></span>
+							<Icon type="solution" 
+                                theme="outlined" 
+                                style={{ fontSize: '24px', color: 'ddd' }}/>	
 							<p> My Posts</p>
 						</NavLink></li>
 				    <li className="hvr-underline-from-center">
 						<NavLink to="/members">
-							<span className="glyphicon glyphicon-th" aria-hidden="true"></span>
+							<Icon type="team" 
+                                theme="outlined" 
+                                style={{ fontSize: '24px', color: 'ddd' }}/>
 							<p> Teammates</p>
 						</NavLink>
 					</li>                
@@ -77,13 +85,17 @@ class Navbar extends React.Component{
 				    <ul className="nav navbar-nav navbar-right">
 					  <li className="hvr-underline-from-center"> 
 					  	<NavLink to={"/user/" + this.state.link}>
-						  	<span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+						  <Icon type="profile" 
+                                theme="outlined" 
+                                style={{ fontSize: '24px', color: 'ddd' }}/>
 							<p>Profile</p>
 						</NavLink>
 					  </li>
 					  <li className="hvr-underline-from-center">
 						  <a onClick={this.handleLogOut}>
-						  	<span className="glyphicon glyphicon-off" aria-hidden="true"></span>
+						  	<Icon type="logout" 
+                                theme="outlined" 
+                                style={{ fontSize: '24px', color: 'ddd' }}/>
 							<p>Log Out</p>
 						  </a>
 					  </li>
@@ -91,7 +103,9 @@ class Navbar extends React.Component{
 				    <ul className="nav navbar-nav navbar-right">
 					  <li className="hvr-underline-from-center log-in"> 
 					  	<NavLink to="/signin">
-						  	<span className="glyphicon glyphicon-lock" aria-hidden="true"></span>
+						  <Icon type="lock" 
+                                theme="outlined" 
+                                style={{ fontSize: '24px', color: 'ddd' }}/>
 							<p>Log In</p>
 						</NavLink>
 					  </li> 
