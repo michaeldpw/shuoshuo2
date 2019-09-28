@@ -119,6 +119,20 @@ a.list-group-item:hover{
     margin-left: 100px
 }
 
+@media (max-width: 1000px) {
+    .avatar {
+        margin-left: 20px
+    }
+}
+
+@media (max-width: 750px) {
+    .avatar {
+        display: none
+    }
+}
+
+
+
 .avatar p{
     width: 100px;
     margin-top: 5px;
@@ -177,6 +191,24 @@ a.list-group-item:hover{
     width: 300px;
     margin-left: 400px;
     float: right
+}
+
+@media (max-width: 1200px) {
+    .signin {
+        margin-left: 200px
+    }
+}
+
+@media (max-width: 1000px) {
+    .signin {
+        margin-left: 150px
+    }
+}
+
+@media (max-width: 750px) {
+    .signin {
+        margin: 0 auto
+    }
 }
 
 .btn-primary{
