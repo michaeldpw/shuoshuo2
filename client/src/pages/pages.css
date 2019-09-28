@@ -20,10 +20,57 @@
     padding: 50px 100px 0px 250px;
     /* border: 1px solid black */
 }
+@media (max-width: 1430px){
+    .image-section {
+        padding: 50px 100px 0px 200px
+    }
+}
+@media (max-width: 1210px){
+    .image-section {
+        padding: 50px 100px 0px 150px
+    }
+}
+@media (max-width: 940px){
+    .image-section {
+        padding: 50px 100px 0px 100px
+    }
+}
+
+@media (max-width: 860px){
+    .image-section {
+        padding: 50px 100px 0px 70px
+    }
+}
+
+@media (max-width: 760px){
+    .image-section {
+        padding: 50px 100px 0px 30px
+    }
+}
+
+@media (max-width: 700px){
+    .image-section {
+        display: none
+    }
+}
 
 .image-section img {
     width: 500px;
     height: 250px
+}
+
+@media (max-width: 1210px){
+    .image-section img{
+        width: 450px;
+        height: 225px
+    }
+}
+
+@media (max-width: 1049px){
+    .image-section img{
+        width: 400px;
+        height: 200px
+    }
 }
 
 .create-account {
