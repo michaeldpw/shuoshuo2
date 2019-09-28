@@ -73,6 +73,14 @@
     }
 }
 
+@media (max-width: 940px){
+    .image-section img{
+        width: 350px;
+        height: 175px
+    }
+}
+
+
 .create-account {
    
     width: 40%;
@@ -80,7 +88,8 @@
 }
 @media (max-width: 700px){
     .create-account {
-       width: 60%;
+      
+       width: 40%;
        margin: 50px auto;
     }
 }
@@ -89,6 +98,13 @@
 .create-account h1 {
     margin-top: 50px;
     margin-bottom: 12px
+}
+
+@media (max-width: 700px){
+    .create-account h1{
+       font-weight: 500;
+       font-size: 24px
+    }
 }
 
 .create-account h3 {
