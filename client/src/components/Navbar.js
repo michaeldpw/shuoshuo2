@@ -49,14 +49,14 @@ class Navbar extends React.Component{
 	  
 	  return (
 		<nav className="navbar navbar-default navbar-fixed-top">
-		    <div className="container">
+		    <div className="container1">
 			  <div className="navbar-header">
 				<a className="navbar-brand" href="#">
 				    <img alt="Brand" src={brand}/>
 				</a>
 			  </div>
 			  <div className="navbar-collapse collapse">
-				<ul className="nav navbar-nav navbar-item">
+				<ul className="nav navbar-nav navbar-item-1">
 				    <li className="hvr-underline-from-center">
 						<NavLink to="/">
 							<Icon type="home" 
@@ -64,14 +64,14 @@ class Navbar extends React.Component{
                                 style={{ fontSize: '24px', color: '#c7d1d8' }}/>
 							<p>Posts</p>
 						</NavLink></li>
-				    <li className="hvr-underline-from-center ">
+				    <li className="hvr-underline-from-center mypost">
 						<NavLink to="/mypost">
 							<Icon type="solution" 
                                 theme="outlined" 
                                 style={{ fontSize: '24px', color: '#c7d1d8' }}/>	
 							<p> My Posts</p>
 						</NavLink></li>
-				    <li className="hvr-underline-from-center">
+				    <li className="hvr-underline-from-center teammates">
 						<NavLink to="/members">
 							<Icon type="team" 
                                 theme="outlined" 
@@ -82,7 +82,7 @@ class Navbar extends React.Component{
 				</ul> 
 				{
 				    this.state.username? 
-				    <ul className="nav navbar-nav navbar-right">
+				    <ul className="nav navbar-nav navbar-right navbar-item-2">
 					  <li className="hvr-underline-from-center"> 
 					  	<NavLink to={"/user/" + this.state.link}>
 						  <Icon type="setting" 
@@ -100,7 +100,7 @@ class Navbar extends React.Component{
 						  </a>
 					  </li>
 				    </ul>:
-				    <ul className="nav navbar-nav navbar-right">
+				    <ul className="nav navbar-nav navbar-right navbar-item-2">
 					  <li className="hvr-underline-from-center log-in"> 
 					  	<NavLink to="/signin">
 						  <Icon type="lock" 
