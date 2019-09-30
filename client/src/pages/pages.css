@@ -166,11 +166,12 @@
 .signin-panel{
     background-color: white;
     width: 614px;
-    height: 376px;
+    /* height: 376px; */
     border: 1px solid #dddfe2;
     border-radius: 3px;
     text-align: center;;
-    padding: 22px 108px 26px 
+    padding: 22px 108px 26px;
+    padding-bottom: 0px
 }
 
 .signin-panel p {
@@ -249,7 +250,8 @@ input:focus::-webkit-input-placeholder {
     background: #e87110;
     color: white;
     outline: none;
-    border: 1px solid 
+    border: 1px solid;
+    margin-bottom: 47px
 }
         
 .user-container{
@@ -303,8 +305,8 @@ input:focus::-webkit-input-placeholder {
     display: inline-block;
     padding-top: 6px;
     padding-bottom: 6px;
-    margin-bottom: 0px;
-    width: 450px
+    margin-bottom: 15px;
+    width: 302px
 }
 
 .sub-btn {
@@ -328,3 +330,4 @@ input:focus::-webkit-input-placeholder {
 .App{
     /* background-color: #4267b2 */
 }
+

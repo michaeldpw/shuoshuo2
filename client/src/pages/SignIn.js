@@ -2,14 +2,17 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import { url } from '../url'
+import { connect } from 'react-redux';
+import { login } from '../actions'
 axios.defaults.withCredentials = true;
 
 class SignIn extends React.Component{
 
     state = {
-        username:'',
+        username: '',
         password:'',
-        code:''
+        error: '',
+        isLoading: false
     }
 
     handleChange = (e) => {
@@ -20,7 +23,6 @@ class SignIn extends React.Component{
 
     handleClick = () => {
         this.props.history.push('/signup');
-        console.log('jump to signup');
     }
 
     handleSubmit = (e) => {
@@ -29,19 +31,33 @@ class SignIn extends React.Component{
             username: this.state.username,
             password: this.state.password
         }
-        console.log(user);
-        axios.post(url + '/checklogin',user).then(res => {
-            //console.log(res.data);
-            this.setState({
-                code: res.data.code
-            })    
-        });
+        // console.log(user);
+        // axios.post(url + '/checklogin',user).then(res => {
+        //     //console.log(res.data);
+        //     this.setState({
+        //         code: res.data.code
+        //     })    
+        // });
+
+        this.setState({isLoading: true});
+        this.props.login(user).then(
+
+            (res) => this.context.history.push('/'),
+            (err) => {
+                this.setState({ error: err.response.data.error, isLoading: false });
+                console.log(err.response.data)
+            }
+            // res => {
+            // this.setState({
+            //     isloading: false,
+            //     error: res.data.error
+            // })
+        )
     }
 
     render(){
-        const code = this.state.code;
-        
-        if(code == '1'){
+        const username = this.props.auth.user;
+        if(username){
           window.location = '/'
         } 
         return (
@@ -64,28 +80,32 @@ class SignIn extends React.Component{
                                 placeholder="Password" />
                         </div>
                         {
-                            this.state.code === "-1"?
-                            <div className="alert alert-danger" role="alert">Username does not exist!</div>: null
+                            this.state.error &&
+                            <div className="alert alert-danger" role="alert">{this.state.error}</div>
                         }
                         {
-                            this.state.code === "-2"?
-                            <div className="alert alert-danger" role="alert">Incorrect password!</div>: null
+                            this.state.isLoading?
+                            <button type="submit" className="signin-btn" style={{"opacity": "0.5"}}disabled={true}>Logging in...</button>
+                            :
+                            <button type="submit" className="signin-btn" disabled={false}>Log In</button>
                         }
-
-                        <button type="submit" className="signin-btn">Log In</button>
+                        
                     </form>
                     <div className="con">
                         <i></i>
                         <p>or</p>
                     </div>
-                    <button className="create_account" onClick={this.handleClick}>Create a new account</button>
+                    <button className="create_account" onClick={this.handleClick} disabled={this.state.isLoading}>Create a new account</button>
                 </div>
-                
-               
-                
             </div>
         )
     }
 }
 
-export default SignIn;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, { login })(SignIn);

@@ -70,24 +70,18 @@ exports.uploadAndCropAvatar = function(req, res, next){
 }
 
 exports.checklogin = function(req, res, next){
-    //console.log(req.session.username);
-    // if(req.session.username){
-    //     console.log("已经登录");
-    //     res.json({"code": 1, "username": req.session.username});
-    //     return;
-    // }
     var username = req.body.username;
     var password = req.body.password;
 
     db.find("users", {"username": username}, function(err, result){
         if(err){
             //服务器错误
-            res.json({"code": "-5", "username": ""});
+            res.json({"error": "Server Error", "username": null});
             return;
         }
         if(result.length === 0){
             // 用户名不存在
-            res.json({"code": "-1", "username": ""});
+            res.status(401).json({"error": "Username does not exist!"});
             return;
         }
         var use_md5_password = md5(md5(password).substr(1,3) + md5(password));
@@ -95,10 +89,11 @@ exports.checklogin = function(req, res, next){
         if(true_password === use_md5_password){
             req.session.login = '1';
             req.session.username = username;   
-            res.json({"code": 1, "username": req.session.username, "avatar": result[0].avatar});  
+            res.json({"error": "0", "username": req.session.username, "avatar": result[0].avatar});  
         } else {
             //密码不正确
-            res.json({"code": "-2", "username": ""});
+            // res.json({"error": "Incorrect password!", "username": null});
+            res.status(401).json({"error" : "Incorrect password!"})
         }
     })
 }

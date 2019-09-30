@@ -1,11 +1,14 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import './components.css';
+
 import brand from './brand.jpg'
 import { url } from '../url'
 import { Icon } from 'antd';
 import 'antd/dist/antd.css'
+import { connect } from 'react-redux';
+import { logout } from '../actions'
 
 axios.defaults.withCredentials = true;
 
@@ -19,22 +22,25 @@ class Navbar extends React.Component{
 
     componentDidMount(){
 
-	  axios.get(url + '/getsession').then(res => {
-		console.log(res.data);
-		this.setState({
-		    username: res.data.username,
-		    link: res.data.username
-		})
+	//   axios.get(url + '/getsession').then(res => {
+	// 	console.log(res.data);
+	// 	this.setState({
+	// 	    username: res.data.username,
+	// 	    link: res.data.username
+	// 	})
 		
-	  })
+	//   })
+
+	console.log(this.props.auth.isLoggedIn)
     }
 
     handleLogOut = () => {
-	  axios.get(url + '/logout').then(res => {
-		this.setState({
-		    logout:res.data.logout
+		this.props.logout().then(res => {
+			//console.log(res.data)
+			this.setState({
+				logout: 1
+			})
 		})
-	  })
     }
 
     render(){
@@ -81,7 +87,7 @@ class Navbar extends React.Component{
 					</li>                
 				</ul> 
 				{
-				    this.state.username? 
+				    this.props.auth.isLoggedIn? 
 				    <ul className="nav navbar-nav navbar-right navbar-item-2">
 					  <li className="hvr-underline-from-center"> 
 					  	<NavLink to={"/user/" + this.state.link}>
@@ -123,4 +129,13 @@ class Navbar extends React.Component{
     }
 }
 
-export default withRouter(Navbar);
+const mapStateToProps = (state) => {
+	return {
+		auth: state.auth
+	}
+}
+
+
+
+
+export default connect(mapStateToProps, { logout })(Navbar);
