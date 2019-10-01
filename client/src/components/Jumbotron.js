@@ -44,7 +44,7 @@ class Jumbotron extends React.Component{
                     <div className="container">
                         <div className="user-panel">
                             <div className="avatar">
-                                <Img src={url + "/avatar/" + this.state.username + '.jpg'} alt=""/>
+                                <Img src={url + "/avatar/" + this.props.auth.user + '.jpg'} alt=""/>
                                 {/* <img src={"/avatar/" + this.state.avatar + '.jpg'} alt=""/> */}
                                 <p>{this.props.auth.user}</p>
                             </div>

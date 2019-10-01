@@ -6,6 +6,7 @@ import ReactCrop from 'react-image-crop';
 import "react-image-crop/dist/ReactCrop.css";
 import Loader from 'react-loader-spinner'
 import { url } from '../url'
+import { connect } from 'react-redux'
 
 import {extractImageFileExtensionFromBase64,
 	image64toCanvasRef} from '../base64'
@@ -90,19 +91,19 @@ handleFileSelect = event => {
 			 }
 	}
 }
-	componentDidMount(){ 
-		this.setState({loading: true}, () => {
-			axios.get(url + '/getsession').then(res => {
-				this.setState({
-					code: res.data.code,
-					username: res.data.username,
-					avatar: res.data.avatar,
-					loading: false
-				})
-			})
-		})
+	// componentDidMount(){ 
+	// 	this.setState({loading: true}, () => {
+	// 		axios.get(url + '/getsession').then(res => {
+	// 			this.setState({
+	// 				code: res.data.code,
+	// 				username: res.data.username,
+	// 				avatar: res.data.avatar,
+	// 				loading: false
+	// 			})
+	// 		})
+	// 	})
 		
-	}
+	// }
 
 	render(){
 		const {imgSrc} = this.state
@@ -112,18 +113,10 @@ handleFileSelect = event => {
 		   
 			<div className="avatar-container">
 				{
-					this.state.loading?
-					<Loader style={{"display": "flex", "justify-content": "center", "margin": "auto"}}
-							type="ThreeDots" 
-							color="#e87110" 
-							height="100" 
-							width="100" />
-					:
-					(
-					this.state.username && this.state.username == url_username? 
+					this.props.auth.user && this.props.auth.user == url_username? 
 					<div>
 						<form method="post" 
-									action="/uploadandcropavatar"
+									action={url + "/uploadandcropavatar"}
 									target="targetIfr" 
 									encType="multipart/form-data">
 							<div className="form-group">
@@ -137,22 +130,22 @@ handleFileSelect = event => {
 						  <iframe name="targetIfr" style={{display:"none"}}></iframe> 
 						</form>
 
-        		<br/>
-							<div>
-								 <ReactCrop
-                     src={imgSrc} 
-                     crop={this.state.crop} 
-                     onImageLoaded={this.handleImageLoaded}
-                     onComplete = {this.handleOnCropComplete}
-                     onChange={this.handleOnCropChange}/>
+        			<br/>
+						<div>
+							<ReactCrop
+								src={imgSrc} 
+								crop={this.state.crop} 
+								onImageLoaded={this.handleImageLoaded}
+								onComplete = {this.handleOnCropComplete}
+								onChange={this.handleOnCropChange}/>
 
-                  <br/>
-                  <p>Preview Canvas Crop </p>
-                  <canvas ref={this.imagePreviewCanvasRef}></canvas>
-              </div>
+                  	<br/>
+                  	<p>Preview Canvas Crop </p>
+                  	<canvas ref={this.imagePreviewCanvasRef}></canvas>
+              		</div>
 			    </div>
 					:<h1>Sorry, you need to <NavLink to="/signin">sign in</NavLink>.</h1>
-				)
+				
 				}
 				
 			</div>
@@ -160,4 +153,10 @@ handleFileSelect = event => {
 	}
 }
 
-export default SetAvatar;
+const mapStateToProps = (state) => {
+	return {
+		auth: state.auth
+	}
+}
+
+export default connect(mapStateToProps, null)(SetAvatar);
