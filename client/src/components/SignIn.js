@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { url, port } from '../url'
+import { url } from '../url'
+import { connect } from 'react-redux';
+import { login } from '../actions'
 
 axios.defaults.withCredentials = true;
 
@@ -9,7 +11,9 @@ class SignIn extends React.Component{
     state = {
         un:'',
         pw:'',
-        code:''
+        code:'',
+        error:'',
+        isLoading:''
     }
 
     handleChange = (e) => {
@@ -24,20 +28,32 @@ class SignIn extends React.Component{
             username: this.state.un,
             password: this.state.pw
         }
-        console.log(user);
-        //console.log(url);
-        axios.post(url + '/checklogin',user).then(res => {
-            console.log(res.data);
-            this.setState({
-                code: res.data.code
-            })    
-        });
+        // console.log(user);
+        // //console.log(url);
+        // axios.post(url + '/checklogin',user).then(res => {
+        //     console.log(res.data);
+        //     this.setState({
+        //         code: res.data.code
+        //     })    
+        // });
+
+        this.setState({isLoading: true});
+        this.props.login(user).then(
+            (res) => {
+                this.context.history.push('/');
+                
+            },
+            (err) => {
+                this.setState({ error: err.response.data.error, isLoading: false });
+                console.log(err.response.data)
+            }
+        ).catch(e => console.log(e))
+
     }
 
     render(){
-        const code = this.state.code;
-        
-        if(code == '1'){
+        const username = this.props.auth.user;
+        if(username){
           window.location = '/'
         } 
         return (
@@ -52,7 +68,7 @@ class SignIn extends React.Component{
 							placeholder="Username" />
     					</div>			  	
 						<br/>
-					<div className="input-group">
+					<div className="input-group pw">
 						<span className="input-group-addon"><i className="glyphicon glyphicon-lock"></i></span>
 						<input id="pw" 
 							type="password" 
@@ -62,14 +78,16 @@ class SignIn extends React.Component{
 					</div>
                     <br/>    
                     {
-                        this.state.code === "-1"?
-                        <div className="warning">Username does not exist!</div>: null
-                    }                    
+                            this.state.error &&
+                            <div className="alert alert-danger" role="alert">{this.state.error}</div>
+                    }
                     {
-                        this.state.code === "-2"?
-                        <div className="warning">Incorrect password!</div>: null
-					}
-                    <button type="submit" className="btn btn-primary sub-btn">Log In</button>                                       
+                            this.state.isLoading?
+                            <button type="submit" className="signin-btn" style={{"opacity": "0.5"}}disabled={true}>Logging in...</button>
+                            :
+                            <button type="submit" className="signin-btn" disabled={false}>Log In</button>
+                    }
+                    
                 </form>
             </div>          
             
@@ -77,4 +95,10 @@ class SignIn extends React.Component{
     }
 }
 
-export default SignIn;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, { login })(SignIn);

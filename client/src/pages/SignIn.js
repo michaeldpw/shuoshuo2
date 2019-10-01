@@ -42,7 +42,8 @@ class SignIn extends React.Component{
         this.setState({isLoading: true});
         this.props.login(user).then(
 
-            (res) => this.context.history.push('/'),
+            (res) => {
+                this.context.history.push('/')},
             (err) => {
                 this.setState({ error: err.response.data.error, isLoading: false });
                 console.log(err.response.data)
@@ -52,7 +53,7 @@ class SignIn extends React.Component{
             //     isloading: false,
             //     error: res.data.error
             // })
-        )
+        ).catch(e => console.log(e))
     }
 
     render(){

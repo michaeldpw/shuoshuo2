@@ -76,7 +76,7 @@ exports.checklogin = function(req, res, next){
     db.find("users", {"username": username}, function(err, result){
         if(err){
             //服务器错误
-            res.json({"error": "Server Error", "username": null});
+            res.status(401).json({"error": "Server Error", "username": null});
             return;
         }
         if(result.length === 0){

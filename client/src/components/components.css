@@ -290,9 +290,9 @@ a.list-group-item:hover{
 
 .jumbotron {
     margin-bottom: 0px; 
-    padding-top: 30px;
+    padding-top: 21px;
     padding-bottom: 0px;
-    height: 175px;
+    height: auto;
     margin-top: 0px
 }
 .collapse-header{
