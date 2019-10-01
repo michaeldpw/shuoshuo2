@@ -173,7 +173,8 @@ exports.allPost = function(req, res, next){
 }
 
 exports.myPost = function (req, res, next){
-    var username = req.session.username;
+    console.log(req.query);
+    var username = req.query.username;
     db.find("posts", {"username": username}, function(err, result){
         if(err){
             res.json({"code": "-1", "result": result});

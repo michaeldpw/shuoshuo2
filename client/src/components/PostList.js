@@ -110,7 +110,7 @@ class PostList extends React.Component{
                 {
                   this.state.loading? 
                   <Loader type="ThreeDots" 
-                          style={{"display": "flex", "justify-content": "center"}} 
+                          style={{"display": "flex", "justifyContent": "center"}} 
                           color="#e87110" 
                           height="100" 
                           width="100" 

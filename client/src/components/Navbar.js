@@ -89,8 +89,8 @@ class Navbar extends React.Component{
 				{
 				    this.props.auth.isLoggedIn? 
 				    <ul className="nav navbar-nav navbar-right navbar-item-2">
-					  <li className="hvr-underline-from-center"> 
-					  	<NavLink to={"/user/" + this.state.link}>
+					  <li className="hvr-underline-from-center profile"> 
+					  	<NavLink to={"/user/" + this.props.auth.user}>
 						  <Icon type="setting" 
                                 theme="outlined" 
                                 style={{ fontSize: '24px', color: '#c7d1d8' }}/>
