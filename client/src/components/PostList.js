@@ -122,14 +122,14 @@ class PostList extends React.Component{
                         this.state.post.map((item, index) => {
                             return (
                                  <a className="list-group-item" key={index}>
-                                     <div style={{"display": "flex", "flex-direction": "row"}}>
-                                    <div className="comment-avatar">
-                                           <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
-                                    </div>
-                                    <div className="username">
-                                        <h4>{item.username}</h4> 
-                                        <p>{item.datetime}</p>
-                                    </div>
+                                    <div style={{"display": "flex", "flex-direction": "row"}}>
+                                        <div className="comment-avatar">
+                                            <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
+                                        </div>
+                                        <div className="username">
+                                            <h4>{item.username}</h4> 
+                                            <p>{item.datetime}</p>
+                                        </div>
                                     </div>
                                     <div className="content">
                                         <p>{item.content}</p>

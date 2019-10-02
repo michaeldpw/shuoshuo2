@@ -2,6 +2,8 @@ import React from 'react'
 import Img from './Img'
 import { url } from '../url'
 import Loader from 'react-loader-spinner'
+import { Icon } from 'antd';
+import 'antd/dist/antd.css'
 
 export default class MemberList extends React.Component {
     
@@ -60,7 +62,9 @@ export default class MemberList extends React.Component {
                                     </div>
                                 </div>
                                 <div className="right face">
+                                    <Icon type="mail" style={{ fontSize: '24px' }} />
                                     <p>Email</p>
+                                    <Icon type="linkedin" style={{ fontSize: '24px' }} />
                                     <p>LinkedIn</p>
                                 </div>
                             </div>
