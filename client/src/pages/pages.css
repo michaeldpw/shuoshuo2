@@ -331,3 +331,10 @@ input:focus::-webkit-input-placeholder {
     /* background-color: #4267b2 */
 }
 
+.member-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+}

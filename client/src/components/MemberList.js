@@ -47,19 +47,24 @@ export default class MemberList extends React.Component {
                     height="100" 
                     width="100" />
                 :
-                <div className="list-group">
+                <div className="member-wrapper" >
                 {
                     this.state.users.map((item, index) => {
                         return (
-                         <a className="list-group-item" key={index}>
-                            <div className="comment-avatar">
-                                <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
+                        <div className="scene">
+                            <div className="box">
+                                <div className="front face">
+                                    <div className="memberlist-avatar" key={index}>
+                                        <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
+                                        <h4>{item.username}</h4>
+                                    </div>
+                                </div>
+                                <div className="right face">
+                                    <p>Email</p>
+                                    <p>LinkedIn</p>
+                                </div>
                             </div>
-                            <div className="username">
-                                <h4>{item.username}</h4> 
-                            
-                            </div>   
-                         </a>
+                        </div>
                         )
                     })
                 }

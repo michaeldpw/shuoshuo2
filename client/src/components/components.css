@@ -1,15 +1,42 @@
 .comment-avatar{
-    float: left;
-    height: 50px;
-    width: 60px;
-    margin-left: 15px
+   margin-right: 20px;
+   margin-left: 20px
 }
+
+.memberlist-avatar {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.member-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 660px
+}
+
+
+.memberlist-avatar img{
+    height: 80px;
+    width: 80px;
+    border-radius: 40px
+}
+
+
+
 
 .comment-avatar img{
     width: 50px;
     height: 50px;
     border-radius: 25px;
 }
+
 
 #pagination-nav {
     height: 70px;
@@ -26,7 +53,7 @@ a.list-group-item:hover{
     padding-bottom: 0px;
     border: none;
     margin-top: 15px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2)
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
 }
 .content {
     border-bottom: 1px solid #d9d9d9;
@@ -496,6 +523,56 @@ a.list-group-item:hover{
 
 }
 
-.memberlist {
-    margin-top: 100px
+
+.memberlist-avatar h4 {
+    color: white;
+    margin-top: 10px
 }
+
+.scene {
+    width: 200px;
+    height: 200px;
+    margin: 10px
+}
+
+.box {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-out;
+    transform-origin: 0 0
+}
+
+.scene:hover .box{
+    transform: rotateY(-90deg);
+    cursor: pointer
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0
+}
+
+.front {
+    transform: rotateY(0deg);
+    background-color: #393e46;
+}
+
+
+.right {
+    transform: rotateY(90deg);
+    left: 200px;
+    background-color: #F3882E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid white
+}
+
+/* .list-group {
+    display: flex;
+    flex-direction: row
+} */

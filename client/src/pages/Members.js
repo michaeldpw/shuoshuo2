@@ -7,7 +7,7 @@ class Members extends React.Component {
 
     render(){
         return (
-            <div className="container mypost-container">
+            <div className="container member-container">
                 {
                     this.props.auth.isLoggedIn?
                     <MemberList />
