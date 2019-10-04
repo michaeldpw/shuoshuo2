@@ -18,7 +18,7 @@
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 612px
+    width: 606px
 }
 
 
@@ -532,7 +532,7 @@ a.list-group-item:hover{
 .scene {
     width: 200px;
     height: 200px;
-    margin: 2px
+    margin: 1px
 }
 
 .box {
