@@ -34,6 +34,10 @@ exports.uploadAndCropAvatar = function(req, res, next){
     form.uploadDir = __dirname + '/../avatar';
     form.parse(req, function(err, fields, files){
         console.log(files, fields);
+        if(!files.image.path){
+            console.log("上传照片异常！")
+            return;
+        }
         var oldPath = files.image.path;
         var newPath = __dirname + '/../avatar/' + req.session.username + '.jpg';
         //改名

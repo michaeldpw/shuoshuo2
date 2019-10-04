@@ -91,26 +91,12 @@ handleFileSelect = event => {
 			 }
 	}
 }
-	// componentDidMount(){ 
-	// 	this.setState({loading: true}, () => {
-	// 		axios.get(url + '/getsession').then(res => {
-	// 			this.setState({
-	// 				code: res.data.code,
-	// 				username: res.data.username,
-	// 				avatar: res.data.avatar,
-	// 				loading: false
-	// 			})
-	// 		})
-	// 	})
-		
-	// }
 
 	render(){
 		const {imgSrc} = this.state
 		const url_username = this.props.match.params.username;
 	  
 		return (
-		   
 			<div className="avatar-container">
 				{
 					this.props.auth.user && this.props.auth.user == url_username? 
