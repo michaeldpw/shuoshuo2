@@ -319,12 +319,13 @@ input:focus::-webkit-input-placeholder {
 }
 
 
-.mypost-container{
+.post-container{
     margin-top: 60px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px);
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    width: 60%
 }
 
 .App{
@@ -337,4 +338,16 @@ input:focus::-webkit-input-placeholder {
     align-items: center;
     margin-top: 60px;
     height: calc(100vh - 60px);
+}
+
+.mypost-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+}
+
+.list-group {
+    width: 100%
 }

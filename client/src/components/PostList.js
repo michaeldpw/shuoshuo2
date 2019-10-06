@@ -1,11 +1,11 @@
 import React from 'react'
 import axios from 'axios';
 import './components.css';
-import Img from './Img';
 import { url } from '../url'
+import { NavLink } from 'react-router-dom'
+import PostListItem from './PostListItem'
 import Loader from 'react-loader-spinner'
-import { Icon } from 'antd';
-import 'antd/dist/antd.css'
+
 
 class PostList extends React.Component{
 
@@ -13,7 +13,8 @@ class PostList extends React.Component{
         post: [],
         total: 0,
         currentPage: 1,
-        loading: false
+        loading: false,
+        openComment: false
     }
 
     getCount = () => {
@@ -66,6 +67,12 @@ class PostList extends React.Component{
             this.getData(this.state.currentPage);
             console.log("next");
         }
+    }
+
+    handleShowComment = () => {
+        this.setState({
+            openComment: !this.state.openComment
+        })
     }
 
     render(){
@@ -121,36 +128,9 @@ class PostList extends React.Component{
                     {
                         this.state.post.map((item, index) => {
                             return (
-                                 <a className="list-group-item" key={index}>
-                                    <div style={{"display": "flex", "flex-direction": "row"}}>
-                                        <div className="comment-avatar">
-                                            <Img src={url + "/avatar/" + item.username + '.jpg'} alt=""/>
-                                        </div>
-                                        <div className="username">
-                                            <h4>{item.username}</h4> 
-                                            <p>{item.datetime}</p>
-                                        </div>
-                                    </div>
-                                    <div className="content">
-                                        <p>{item.content}</p>
-                                    </div>
-                                    <div className="comment-like">
-                                        <div className="comment-tab">
-                                            <Icon type="message" 
-                                                theme="outlined" 
-                                                style={{ fontSize: '18px', color: 'ddd' }}/>
-                                            <span style={{"fontSize": "16px"}}> Comment</span>
-                                        </div>
-                                        <div className="like-tab">
-                                            <Icon type="like" 
-                                                    theme="outlined" 
-                                                    style={{ fontSize: '18px', color: 'ddd' }}/>
-                                                <span style={{"fontSize": "16px"}}> Like</span>
-                                            </div>
-                                    </div>
-                                   
-                                   
-                                </a>
+                                
+                                <PostListItem item={item} id={item._id} index={index}/>
+                                
                             )
                         })
                     }

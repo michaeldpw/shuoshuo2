@@ -50,14 +50,16 @@ a.list-group-item:hover{
 
 .list-group-item {
     padding:10px 0;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     border: none;
     margin-top: 15px;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
+    width: 100%
 }
+
+
 .content {
-    border-bottom: 1px solid #d9d9d9;
-    padding: 0 15px
+    padding: 0 20px;
 }
 .navbar-brand {
     padding: 0  0;
@@ -302,14 +304,22 @@ a.list-group-item:hover{
 }
 
 .username{
-    height: 60px;
+    /* height: 60px; */
     width: 400px;
+    display: flex;
+    flex-direction: column
 }
+
+
 .username p{
-    color: grey;
+    color: #b6b8b7;
     font-size: 12px
 }
 
+.date-and-summary {
+    display: flex;
+    flex-direction: row
+}
 .username h4 {
     font-size: 20px;
     margin-top: 0px
@@ -500,7 +510,8 @@ a.list-group-item:hover{
     justify-content: center;
     align-items: center;
     text-align: center;
-    line-height: 40px
+    line-height: 40px;
+    border-top: 1px solid #d9d9d9;
 }
 
 
@@ -512,6 +523,32 @@ a.list-group-item:hover{
     height: 40px;
     border-right: 1px solid #ddd
 }
+
+.comment-panel {
+    padding: 10px 20px;
+    padding-top: 50px;
+    flex-direction: row;
+}
+
+.comment-panel input {
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    width: 400px;
+    padding-left: 10px
+}
+
+.comment-panel button {
+    border-radius: 15px;
+    border: 1px solid #F3882E;
+    background-color: #F3882E;
+    color: white
+}
+
+
 
 .like-tab:hover {
     background-color: #F5F5F5
@@ -572,7 +609,32 @@ a.list-group-item:hover{
     border-bottom: 1px solid white
 }
 
-/* .list-group {
+
+.comment-list {
+    width: 100%;
+    height: 300px;
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
+    border-top: none;
+}
+
+.comment-summary {
+    width: 100%;
+    background-color: #f2f5f3;
+    height: 50px;
+    border-bottom: 1px solid #ddd
+}
+
+.comment-like-summary {
+    height: 20px;
     display: flex;
-    flex-direction: row
-} */
+    align-items: center;
+    flex-direction: row;
+    padding-left: 20px
+}
+
+.comment-like-summary span {
+    margin-left: 5px;
+    color: #d2d4d3;
+    font-size: 14px
+}

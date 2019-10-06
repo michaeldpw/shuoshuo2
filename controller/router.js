@@ -1,10 +1,11 @@
 var md5 = require('../utils/md5');
 var db = require('../models/db');
 var formidable = require('formidable');
-var dateformat = require('dateformat');
+const date = require('date-and-time');
+var ObjectID = require('mongodb').ObjectID;
 var fs = require('fs');
 var gm = require('gm');
-var now = new Date();
+const now = new Date();
 
 exports.getsession = function(req, res, next){
     //若已经登录
@@ -152,7 +153,7 @@ exports.doPost = function(req, res, next){
     var content = req.body.content;
     db.insertOne("posts", {
         "username": username,
-        "datetime": dateformat(now, "isoDateTime"),
+        "datetime": date.format(now, 'YYYY/MM/DD HH:mm:ss'),
         "content": content,
     }, function(err, result){
         if(err){
@@ -205,5 +206,16 @@ exports.count = function(req, res, next){
             return;
         }
         res.json({"count": result});
+    })
+}
+
+exports.getPostWithId = function(req, res, next){
+    var pid = req.query.pid.toString();
+    db.find("posts", {"_id": ObjectID(pid)}, function(err, result){
+        if(err){
+            res.json({"code": "-1", "result": result});
+            return;
+        }
+        res.json({"result": result})
     })
 }

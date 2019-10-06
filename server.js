@@ -44,6 +44,7 @@ app.get('/mypost', router.myPost);
 app.get('/allpost', router.allPost);
 app.get('/alluser', router.allUser);
 app.get('/count', router.count);
+app.get('/getpostwithid', router.getPostWithId)
 app.get('/logout', router.doLogOut);
 
 if(process.env.NODE_ENV === 'production'){
