@@ -14,14 +14,7 @@ class PostDetail extends  React.Component {
     state = {
        post: [],
        comments: [],
-       openComment: false,
        loading: false
-    }
-
-    handleShowComment = () => {
-        this.setState({
-            openComment: !this.state.openComment
-        })
     }
     
     componentDidMount(){
@@ -68,9 +61,9 @@ class PostDetail extends  React.Component {
                             <div className="content" style={{"padding-bottom": "10px"}}>
                                 <p>{item.content}</p>
                             </div>    
-                            <CommentPanel isShown={this.state.openComment} pid={this.props.match.params.pid}/>
+                            <CommentPanel isShown={true} pid={this.props.match.params.pid}/>
                             <div className="comment-like">
-                            <div className="comment-tab" onClick={this.handleShowComment}>
+                            <div className="comment-tab">
                                 <Icon type="message" 
                                     theme="outlined" 
                                     style={{ fontSize: '18px', color: 'ddd' }}/>

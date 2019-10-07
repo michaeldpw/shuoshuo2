@@ -44,7 +44,7 @@ class CommentPanel extends React.Component {
                 <input type="text" 
                         onChange={this.handleInputChange} 
                         placeholder="Say something..." required/>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button onClick={this.handleSubmit} disabled={!this.state.comment}>Submit</button>
             </div>
         )
     }
