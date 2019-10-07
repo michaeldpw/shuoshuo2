@@ -634,6 +634,10 @@ a.list-group-item:hover{
     /* height: 200px */
 }
 
+.comment-item:last-child {
+    border-bottom: none
+}
+
 .comment-like-summary {
     height: 20px;
     display: flex;
@@ -677,7 +681,7 @@ a.list-group-item:hover{
 }
 .author-and-content p {
     margin-bottom: 0px;
-    margin-left: 20px
+    margin-left: 15px
 }
 
 
@@ -687,5 +691,6 @@ a.list-group-item:hover{
 .comment-time p {
     margin-bottom: 0px;
     font-size: 12px;
-    color: #555
+    color: #b6b8b7;
+    font-weight: 200
 }
