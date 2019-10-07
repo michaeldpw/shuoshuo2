@@ -31,14 +31,7 @@ class SignIn extends React.Component{
             username: this.state.username,
             password: this.state.password
         }
-        // console.log(user);
-        // axios.post(url + '/checklogin',user).then(res => {
-        //     //console.log(res.data);
-        //     this.setState({
-        //         code: res.data.code
-        //     })    
-        // });
-
+        
         this.setState({isLoading: true});
         this.props.login(user).then(
 

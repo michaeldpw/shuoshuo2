@@ -209,6 +209,7 @@ exports.count = function(req, res, next){
     })
 }
 
+//通过post id 查找post
 exports.getPostWithId = function(req, res, next){
     var pid = req.query.pid.toString();
     db.find("posts", {"_id": ObjectID(pid)}, function(err, result){
@@ -218,4 +219,28 @@ exports.getPostWithId = function(req, res, next){
         }
         res.json({"result": result})
     })
+}
+
+//添加评论
+exports.postComment = function(req, res, next){
+    db.updateMany("posts", 
+                {"_id": ObjectID(req.body.pid)}, 
+                { $addToSet: {"comments": 
+                    {
+                        _id: req.body._id,
+                        author: req.body.author,
+                        createdAt: req.body.createdAt,
+                        content: req.body.content
+                    }
+                  } 
+                }, 
+    function(err, result){
+        if (err){
+            console.log(err);
+            return;
+        }
+        res.send({"result": result})
+    })
+
+    
 }

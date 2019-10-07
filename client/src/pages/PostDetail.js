@@ -13,6 +13,7 @@ class PostDetail extends  React.Component {
 
     state = {
        post: [],
+       comments: [],
        openComment: false,
        loading: false
     }
@@ -28,13 +29,17 @@ class PostDetail extends  React.Component {
             Axios.get(url + '/getpostwithid?pid=' + this.props.match.params.pid).then(res => {
                 this.setState({
                     post: res.data.result,
+                    comments: res.data.result.comments,
                     loading: false
                 })
             })
+           
         })   
     }
     
     render(){
+
+         console.log(this.state)
         return ( 
             <div className="post-container">
             {
@@ -57,13 +62,13 @@ class PostDetail extends  React.Component {
                                 </div>
                                  <div className="username">
                                     <h4>{item.username}</h4> 
-                                    <p>{item.datetime}</p>
+                                    <p> Published at {item.datetime}</p>
                                 </div>
                              </div>
                             <div className="content" style={{"padding-bottom": "10px"}}>
                                 <p>{item.content}</p>
                             </div>    
-                            <CommentPanel isShown={this.state.openComment}/>
+                            <CommentPanel isShown={this.state.openComment} pid={this.props.match.params.pid}/>
                             <div className="comment-like">
                             <div className="comment-tab" onClick={this.handleShowComment}>
                                 <Icon type="message" 
@@ -83,7 +88,7 @@ class PostDetail extends  React.Component {
                    })
                 }
                 </div>
-                <CommentList />
+                <CommentList post={this.state.post}/>
             </React.Fragment>
             }
            </div>

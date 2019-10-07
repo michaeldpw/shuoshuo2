@@ -612,10 +612,11 @@ a.list-group-item:hover{
 
 .comment-list {
     width: 100%;
-    height: 300px;
+    /* height: 400px; */
     background-color: white;
     box-shadow: 0 0 0 1px rgba(0,0,0,.15),0 2px 3px rgba(0,0,0,.2);
     border-top: none;
+
 }
 
 .comment-summary {
@@ -623,6 +624,14 @@ a.list-group-item:hover{
     background-color: #f2f5f3;
     height: 50px;
     border-bottom: 1px solid #ddd
+}
+
+.comments-detail{
+    width: 100%;
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px
+    /* height: 200px */
 }
 
 .comment-like-summary {
@@ -637,4 +646,46 @@ a.list-group-item:hover{
     margin-left: 5px;
     color: #d2d4d3;
     font-size: 14px
+}
+
+.comment-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.comment-item {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px
+
+
+}
+
+.author-and-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.author-and-content h5 {
+    margin-bottom: 0px;
+    margin-left: 10px
+}
+.author-and-content p {
+    margin-bottom: 0px;
+    margin-left: 20px
+}
+
+
+.comment-time {
+    margin-left: 10px
+}
+.comment-time p {
+    margin-bottom: 0px;
+    font-size: 12px;
+    color: #555
 }
