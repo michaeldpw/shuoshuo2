@@ -148,8 +148,8 @@ exports.doLogOut = function(req, res, next){
       }
 }
 
-exports.doPost = function(req, res, next){
-    var username = req.session.username;
+exports.doPost = function(req, res){
+    var username = req.body.user;
     var content = req.body.content;
     db.insertOne("posts", {
         "username": username,
@@ -217,7 +217,13 @@ exports.getPostWithId = function(req, res, next){
             res.json({"code": "-1", "result": result});
             return;
         }
-        res.json({"result": result})
+        if(result[0].comments){
+            var comment_number = result[0].comments.length;
+            res.json({"result": result, "comment_number": comment_number})
+        } else {
+            res.json({"result": result, "comment_number": 0})
+        }
+        
     })
 }
 

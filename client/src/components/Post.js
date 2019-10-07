@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
-import { url, port } from '../url'
+import { url } from '../url'
+import { connect } from 'react-redux'
 
 class Post extends React.Component {
 
@@ -29,7 +30,8 @@ class Post extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const post = {
-            content: this.state.content
+            content: this.state.content,
+            user: this.props.auth.user
         }
         console.log(post);
         axios.post(url + '/dopost',post).then(res => {
@@ -58,7 +60,13 @@ class Post extends React.Component {
     }
 }
 
-export default Post;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps, null)(Post);
 
 const styles = {
     input: {

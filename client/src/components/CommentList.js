@@ -10,7 +10,6 @@ class Commentlist extends React.Component {
                 <div className="comment-summary">
 
                 </div>
-                
                     {
                         this.props.post.map((item, index) => {
                             return (
@@ -19,12 +18,9 @@ class Commentlist extends React.Component {
                                     item.comments && item.comments.slice(0).reverse().map(comment => {
                                         return (
                                             <div className="comment-item" key={comment._id}>
-                                                
-                                                    <Img src={url + "/avatar/" + comment.author + '.jpg'} 
+                                                <Img src={url + "/avatar/" + comment.author + '.jpg'} 
                                                      style={{"height":"40px", "width": "40px", "borderRadius": "20px"}}
                                                      alt=""/>
-                                                   
-                                               
                                                 <div className="comment-text">
                                                     <div className="author-and-content">
                                                         <h5>{comment.author}</h5>
@@ -33,7 +29,6 @@ class Commentlist extends React.Component {
                                                     <div className="comment-time">
                                                         <p>{moment(comment.createdAt).fromNow()}</p>
                                                     </div>
-                                                    
                                                 </div> 
                                             </div>
                                         )

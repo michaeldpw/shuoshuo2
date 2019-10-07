@@ -3,12 +3,15 @@ import Img from './Img'
 import { connect } from 'react-redux';
 import { url } from '../url'
 import Axios from 'axios';
+import { withRouter } from 'react-router-dom'
 
 
 class CommentPanel extends React.Component {
 
     state = {
-        comment:''
+        comment:'',
+        loading: false
+        
     }
 
     handleInputChange = (e) => {
@@ -18,6 +21,12 @@ class CommentPanel extends React.Component {
     }
 
     handleSubmit = () => {
+        console.log(this.props.pid)
+        if (!this.props.auth.user) {
+          this.props.history.push('/signin');
+          return;
+        }
+
         const comment = {
             _id: Date.now().toString(),
             pid: this.props.pid,
@@ -26,12 +35,13 @@ class CommentPanel extends React.Component {
             createdAt: new Date()
         }
 
+        this.setState({loading: true});
         Axios.post(url + '/postcomment', comment).then(res => {
-            console.log(res.data);
-            window.location.reload();
+                this.setState({
+                    loading: false
+                })
         })
-
-
+       window.location.reload();
     }
 
 
@@ -44,7 +54,14 @@ class CommentPanel extends React.Component {
                 <input type="text" 
                         onChange={this.handleInputChange} 
                         placeholder="Say something..." required/>
-                <button onClick={this.handleSubmit} disabled={!this.state.comment}>Submit</button>
+
+                {
+                    this.state.loading?
+                    <button onClick={this.handleSubmit} disabled={!this.state.comment}>Submitting...</button>
+                    :
+                    <button onClick={this.handleSubmit} disabled={!this.state.comment}>Submit</button>
+                }
+               
             </div>
         )
     }
@@ -59,4 +76,4 @@ const mapStateToProps = (state) => {
         }
     }
 
-export default connect(mapStateToProps, null)(CommentPanel)
+export default withRouter(connect(mapStateToProps, null)(CommentPanel))

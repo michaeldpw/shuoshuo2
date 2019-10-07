@@ -27,7 +27,7 @@ class PostListItem extends React.Component {
                                 <Icon type="message" 
                                     theme="filled" 
                                     style={{ fontSize: '12px', color: '#b6b8b7' }}/>
-                                <span>4</span>
+                                <span>{this.props.comments_number}</span>
                                 <Icon type="like" 
                                     theme="filled" 
                                     style={{ fontSize: '12px', color: '#b6b8b7', marginLeft: '20px'}}/>

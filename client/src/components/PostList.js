@@ -86,33 +86,6 @@ class PostList extends React.Component{
 
         return (
             <div className="container">
-               <nav id="pagination-nav" aria-label="Page navigation">
-                    <ul className="pagination">
-                        <li onClick={this.handlePrevious}>
-                            <a aria-label="Previous">
-                                <span aria-hidden="true" >&laquo;</span>
-                            </a>
-                        </li>
-                            {
-                               pageNumber.map((item, index) => {
-                                let classes = (this.state.currentPage) === item ? "active" : '';
-                                        return <li key={index} className={classes}>
-                                                    <a 
-                                                       onClick={() => this.getData(item - 1)}    
-                                                    >
-                                                       {item}
-                                                    </a>
-
-                                                </li>                         
-                               })
-                            }
-                        <li onClick={this.handleNext}>
-                            <a  aria-label="Next" >
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
 
                 {
                   this.state.loading? 
@@ -123,20 +96,53 @@ class PostList extends React.Component{
                           width="100" 
                   />
                   :
-                
-               <div className="list-group">
+                  <React.Fragment>
+                  <nav id="pagination-nav" aria-label="Page navigation">
+                  <ul className="pagination">
+                      <li onClick={this.handlePrevious}>
+                          <a aria-label="Previous">
+                              <span aria-hidden="true" >&laquo;</span>
+                          </a>
+                      </li>
+                          {
+                             pageNumber.map((item, index) => {
+                              let classes = (this.state.currentPage) === item ? "active" : '';
+                                      return <li key={index} className={classes}>
+                                                  <a 
+                                                     onClick={() => this.getData(item - 1)}    
+                                                  >
+                                                     {item}
+                                                  </a>
+
+                                              </li>                         
+                             })
+                          }
+                      <li onClick={this.handleNext}>
+                          <a  aria-label="Next" >
+                              <span aria-hidden="true">&raquo;</span>
+                          </a>
+                      </li>
+                  </ul>
+              </nav>
+                  <div className="list-group">
                     {
                         this.state.post.map((item, index) => {
-                            return (
-                                
-                                <PostListItem item={item} id={item._id} index={index}/>
-                                
+                            
+                            var comments_number = item.comments? item.comments.length: 0
+                            
+                            return (  
+                                <PostListItem item={item}  
+                                                comments_number={comments_number} 
+                                                id={item._id} 
+                                                index={index}/>       
                             )
                         })
                     }
-                </div>
+                  </div>
+                </React.Fragment>
                 }
             </div> 
+            
             
         )
     }

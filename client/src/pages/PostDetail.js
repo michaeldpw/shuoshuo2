@@ -14,6 +14,7 @@ class PostDetail extends  React.Component {
     state = {
        post: [],
        comments: [],
+       comment_number: '',
        loading: false
     }
     
@@ -22,8 +23,9 @@ class PostDetail extends  React.Component {
             Axios.get(url + '/getpostwithid?pid=' + this.props.match.params.pid).then(res => {
                 this.setState({
                     post: res.data.result,
-                    comments: res.data.result.comments,
-                    loading: false
+                    comment_number: res.data.comment_number,
+                    loading: false,
+                    // comments_number: Object.keys(res.data.result.comments).length
                 })
             })
            
@@ -67,7 +69,7 @@ class PostDetail extends  React.Component {
                                 <Icon type="message" 
                                     theme="outlined" 
                                     style={{ fontSize: '18px', color: 'ddd' }}/>
-                                <span style={{"fontSize": "16px"}}> 4</span>
+                                <span style={{"fontSize": "16px"}}> {this.state.comment_number}</span>
                              </div>
                             <div className="like-tab">
                                 <Icon type="like" 
@@ -81,7 +83,7 @@ class PostDetail extends  React.Component {
                    })
                 }
                 </div>
-                <CommentList post={this.state.post}/>
+                <CommentList post={this.state.post} />
             </React.Fragment>
             }
            </div>
