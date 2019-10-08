@@ -31,7 +31,7 @@ class PostListItem extends React.Component {
                                 <Icon type="like" 
                                     theme="filled" 
                                     style={{ fontSize: '12px', color: '#b6b8b7', marginLeft: '20px'}}/>
-                                <span>10</span>
+                                <span>{this.props.likes_number}</span>
                             </div>
                             
                         </div>

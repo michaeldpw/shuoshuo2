@@ -217,11 +217,19 @@ exports.getPostWithId = function(req, res, next){
             res.json({"code": "-1", "result": result});
             return;
         }
-        if(result[0].comments){
+        //判断和返回评论和点赞个数
+        if(result[0].comments && result[0].likes){
             var comment_number = result[0].comments.length;
-            res.json({"result": result, "comment_number": comment_number})
+            var like_number = result[0].likes.length;
+            res.json({"result": result, "comment_number": comment_number, "like_number": like_number})
+        } else if (!result[0].comments && result[0].likes){
+            var like_number = result[0].likes.length;
+            res.json({"result": result, "comment_number": 0, "like_number": like_number})
+        } else if(result[0].comments && !result[0].likes) {
+            var comment_number = result[0].comments.length;
+            res.json({"result": result, "comment_number": comment_number, "like_number": 0})
         } else {
-            res.json({"result": result, "comment_number": 0})
+            res.json({"result": result, "comment_number": 0, "like_number": 0})
         }
         
     })
@@ -229,6 +237,7 @@ exports.getPostWithId = function(req, res, next){
 
 //添加评论
 exports.postComment = function(req, res, next){
+    console.log('postcomment')
     db.updateMany("posts", 
                 {"_id": ObjectID(req.body.pid)}, 
                 { $addToSet: {"comments": 
@@ -250,3 +259,23 @@ exports.postComment = function(req, res, next){
 
     
 }
+
+exports.doLike = function (req, res, next) {
+    console.log('like');
+    db.updateMany("posts", 
+    {"_id": ObjectID(req.query.pid.toString())}, 
+    { $addToSet: {"likes": 
+        
+            req.query.user,
+        
+      } 
+    }, 
+        function(err, result){
+        if (err){
+        console.log(err);
+        return;
+        }
+        res.send({"result": result})
+        })
+}
+

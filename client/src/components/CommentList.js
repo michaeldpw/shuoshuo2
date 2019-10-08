@@ -8,7 +8,24 @@ class Commentlist extends React.Component {
         return (
             <div className="comment-list">
                 <div className="comment-summary">
-
+                    <span>Liked by </span>
+                    {
+                        this.props.post.map(item => {
+                            return (
+                                <div>
+                                    {
+                                        item.likes && item.likes.map (user => {
+                                            return (
+                                                    <a>{user}</a>
+                                            )
+                                        })
+                                   
+                                    }
+                                </div>
+                            )
+                            
+                        })
+                    }
                 </div>
                     {
                         this.props.post.map((item, index) => {

@@ -128,11 +128,13 @@ class PostList extends React.Component{
                     {
                         this.state.post.map((item, index) => {
                             
-                            var comments_number = item.comments? item.comments.length: 0
+                            var comments_number = item.comments? item.comments.length: 0;
+                            var likes_number = item.likes? item.likes.length: 0
                             
                             return (  
                                 <PostListItem item={item}  
                                                 comments_number={comments_number} 
+                                                likes_number={likes_number}
                                                 id={item._id} 
                                                 index={index}/>       
                             )

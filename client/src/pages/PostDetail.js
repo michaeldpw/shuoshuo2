@@ -2,6 +2,8 @@ import React from 'react'
 import Axios from 'axios';
 import CommentPanel from '../components/CommentPanel'
 import Loader from 'react-loader-spinner'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { url } from '../url'
 import { Icon } from 'antd';
 import 'antd/dist/antd.css'
@@ -13,9 +15,10 @@ class PostDetail extends  React.Component {
 
     state = {
        post: [],
-       comments: [],
        comment_number: '',
-       loading: false
+       like_number: 0,
+       loading: false,
+       like: false
     }
     
     componentDidMount(){
@@ -24,14 +27,37 @@ class PostDetail extends  React.Component {
                 this.setState({
                     post: res.data.result,
                     comment_number: res.data.comment_number,
+                    like_number: res.data.like_number,
                     loading: false,
-                    // comments_number: Object.keys(res.data.result.comments).length
+                })
+            }).then(() => {
+                this.state.post.map(post => {
+                   if (post.likes && post.likes.indexOf(this.props.auth.user)>= 0){
+                       this.setState({
+                           like: true
+                       })
+                   }
                 })
             })
            
         })   
     }
-    
+
+    handleLike = () => {
+        if(this.props.auth.user){
+            Axios.get(url + '/dolike?pid=' + this.props.match.params.pid + '&user=' + this.props.auth.user)
+                .then (res => {
+                    console.log(res.data.result)
+                    this.setState({
+                        like: true,
+                        like_number: this.state.like_number + 1
+                    })
+                }).catch(err => console.log(err))
+        } else {
+            this.props.history.push('/signin')
+        }
+        
+    }    
     render(){
 
          console.log(this.state)
@@ -71,11 +97,19 @@ class PostDetail extends  React.Component {
                                     style={{ fontSize: '18px', color: 'ddd' }}/>
                                 <span style={{"fontSize": "16px"}}> {this.state.comment_number}</span>
                              </div>
-                            <div className="like-tab">
-                                <Icon type="like" 
-                                        theme="outlined" 
-                                        style={{ fontSize: '18px', color: 'ddd' }}/>
-                                    <span style={{"fontSize": "16px"}}> 10</span>
+                            <div className="like-tab" onClick={this.handleLike}>
+                                {
+                                    this.state.like? 
+                                    <Icon type="like" 
+                                        theme="filled" 
+                                        style={{ fontSize: '18px', color: '#ffc73b' }}/>
+                                    :
+                                    <Icon type="like" 
+                                    theme="outlined" 
+                                    style={{ fontSize: '18px', color: 'ddd' }}/>
+                                }
+                               
+                                    <span style={{"fontSize": "16px"}}> {this.state.like_number}</span>
                                 </div>
                             </div>             
                         </a> 
@@ -92,6 +126,11 @@ class PostDetail extends  React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth
+    }
+}
 
 
-export default PostDetail
+export default withRouter(connect(mapStateToProps, null)(PostDetail))
