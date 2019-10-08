@@ -686,10 +686,11 @@ a.list-group-item:hover{
     flex-direction: row;
     padding-top: 10px;
     padding-bottom: 10px
-
-
 }
 
+.comment-text {
+    margin-left: 10px
+}
 .author-and-content {
     display: flex;
     flex-direction: row;

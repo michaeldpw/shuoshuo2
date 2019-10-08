@@ -42,6 +42,7 @@ app.post('/uploadandcropavatar', router.uploadAndCropAvatar);
 app.post('/dopost', router.doPost);
 app.post('/postcomment', router.postComment);
 app.get('/dolike', router.doLike);
+app.get('/dounlike', router.doUnlike);
 app.get('/mypost', router.myPost);
 app.get('/allpost', router.allPost);
 app.get('/alluser', router.allUser);

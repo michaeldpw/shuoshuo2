@@ -261,15 +261,9 @@ exports.postComment = function(req, res, next){
 }
 
 exports.doLike = function (req, res, next) {
-    console.log('like');
     db.updateMany("posts", 
     {"_id": ObjectID(req.query.pid.toString())}, 
-    { $addToSet: {"likes": 
-        
-            req.query.user,
-        
-      } 
-    }, 
+    { $addToSet: { "likes":  req.query.user } }, 
         function(err, result){
         if (err){
         console.log(err);
@@ -277,5 +271,20 @@ exports.doLike = function (req, res, next) {
         }
         res.send({"result": result})
         })
+}
+
+exports.doUnlike = function (req, res, next) {
+    console.log(req.query);
+    db.updateMany("posts",
+    {"_id": ObjectID(req.query.pid.toString())},
+    { $pull: { likes: req.query.user } },
+        function(err, result) {
+            if(err){
+                console.log(err);
+                return;
+            }
+            res.send({"result": result})
+        }
+    )
 }
 

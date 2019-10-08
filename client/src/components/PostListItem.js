@@ -25,11 +25,11 @@ class PostListItem extends React.Component {
                             <p>{this.props.item.datetime}</p>
                             <div className="comment-like-summary">
                                 <Icon type="message" 
-                                    theme="filled" 
+                                    theme="outlined" 
                                     style={{ fontSize: '12px', color: '#b6b8b7' }}/>
                                 <span>{this.props.comments_number}</span>
                                 <Icon type="like" 
-                                    theme="filled" 
+                                    theme="outlined" 
                                     style={{ fontSize: '12px', color: '#b6b8b7', marginLeft: '20px'}}/>
                                 <span>{this.props.likes_number}</span>
                             </div>

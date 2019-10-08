@@ -45,6 +45,7 @@ class PostDetail extends  React.Component {
 
     handleLike = () => {
         if(this.props.auth.user){
+            
             Axios.get(url + '/dolike?pid=' + this.props.match.params.pid + '&user=' + this.props.auth.user)
                 .then (res => {
                     console.log(res.data.result)
@@ -56,8 +57,18 @@ class PostDetail extends  React.Component {
         } else {
             this.props.history.push('/signin')
         }
-        
-    }    
+    } 
+
+    handleUnlike = () => {
+        Axios.get(url + '/dounlike?pid=' + this.props.match.params.pid + '&user=' + this.props.auth.user)
+        .then (res => {
+            this.setState({
+                like: false,
+                like_number:  this.state.like_number - 1
+            })
+        }).catch(err => console.log(err))
+    }
+
     render(){
 
          console.log(this.state)
@@ -94,23 +105,26 @@ class PostDetail extends  React.Component {
                             <div className="comment-tab">
                                 <Icon type="message" 
                                     theme="outlined" 
-                                    style={{ fontSize: '18px', color: 'ddd' }}/>
+                                    style={{ fontSize: '18px' }}/>
                                 <span style={{"fontSize": "16px"}}> {this.state.comment_number}</span>
                              </div>
-                            <div className="like-tab" onClick={this.handleLike}>
-                                {
-                                    this.state.like? 
+                            {
+                                this.state.like?
+                                <div className="like-tab" onClick={this.handleUnlike}>
                                     <Icon type="like" 
-                                        theme="filled" 
+                                        theme="filled"                                    
                                         style={{ fontSize: '18px', color: '#ffc73b' }}/>
-                                    :
-                                    <Icon type="like" 
-                                    theme="outlined" 
-                                    style={{ fontSize: '18px', color: 'ddd' }}/>
-                                }
-                               
                                     <span style={{"fontSize": "16px"}}> {this.state.like_number}</span>
                                 </div>
+                                :
+                                <div className="like-tab" onClick={this.handleLike}>
+                                    <Icon type="like" 
+                                        theme="outlined" 
+                                        style={{ fontSize: '18px' }}/>
+                                    <span style={{"fontSize": "16px"}}> {this.state.like_number}</span>
+                                </div>
+
+                            }
                             </div>             
                         </a> 
                        )
