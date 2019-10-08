@@ -50,7 +50,7 @@ class PostDetail extends  React.Component {
                     console.log(res.data.result)
                     this.setState({
                         like: true,
-                        like_number: this.state.like_number + 1
+                        like_number: this.state.like? this.state.like_number : this.state.like_number + 1
                     })
                 }).catch(err => console.log(err))
         } else {
