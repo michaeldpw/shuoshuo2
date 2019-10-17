@@ -6,8 +6,8 @@
 
 .signup-container{
     margin-top: 60px;
-    background-image: linear-gradient(white, #D3D8E8);
-    height: 636px;
+    background-image: linear-gradient(white, #b5c2eb);
+    height: calc(100vh - 60px);
     width: 100%;
     display: flex;
     justify-content: center
@@ -153,8 +153,9 @@
 }
 
 .signin-container{
-    background-image: linear-gradient(white, #D3D8E8);
-    height: 636px;
+    background-image: linear-gradient(white, #a3b4e6);
+    z-index: 0;
+    height: calc(100vh - 60px);
     width: 100%;
     margin-top: 60px;
     display: flex;
@@ -164,17 +165,123 @@
 }
 
 .signin-panel{
-    background-color: white;
-    width: 614px;
+    background-color: rgba(255, 255, 255, 0.2);;
+    /* width: 614px; */
+    z-index: 2;
     /* height: 376px; */
-    border: 1px solid #dddfe2;
+    border: none;
     border-radius: 3px;
-    text-align: center;;
+    text-align: center;
+    margin-bottom: 60px;
     padding: 22px 108px 26px;
-    padding-bottom: 0px
+    padding-bottom: 0px;
+
 }
 
+.animation-area {
+    min-width: 900px;
+    z-index: 1;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    width: 100%;
+    height: 100vh
+}
+
+.box-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 0 0;
+    background-image: linear-gradient(white, #a3b4e6);
+}
+
+.box-area li{
+    position: absolute;
+    bottom: -50px;
+    /* z-index: 1; */
+    display: block;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 18s linear infinite;
+}
+
+.box-area li:nth-child(1){
+    left: 86%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s
+}
+
+.box-area li:nth-child(2){
+    left: 12%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 1.5s;
+    animation-duration: 10s
+}
+.box-area li:nth-child(3){
+    left: 70%;
+    width: 100px;
+    height: 100px;
+    animation-delay: 5.5s;
+}
+
+.box-area li:nth-child(4){
+    left: 42%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 15s
+}
+.box-area li:nth-child(5){
+    left: 65%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+
+.box-area li:nth-child(6){
+    left: 15%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3.5s;
+}
+.box-area li:nth-child(7){
+    left: 80%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 1.5s;
+    animation-duration: 10s
+}
+.box-area li:nth-child(8){
+    left: 5%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 5s;
+    animation-duration: 10s
+}
+
+
+@keyframes animate{
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-800px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
 .signin-panel p {
+    font-family: Baloo;
     font-size: 18px;
     margin-bottom: 22px;
     margin-top: 18px;
@@ -199,6 +306,7 @@
 input:focus::-webkit-input-placeholder {
     color: #cfcfc6;
     box-shadow: none;
+    opacity: 0.4
 }
 
 .signin-btn {
@@ -226,7 +334,7 @@ input:focus::-webkit-input-placeholder {
 .con i{
     display:block;
     height:1px;
-    background:#adaaaa;
+    /* background:#adaaaa; */
     position:absolute;
     top:0.9rem;
     width:305px;
@@ -235,8 +343,8 @@ input:focus::-webkit-input-placeholder {
 .con p{
     display:inline-block;
     font-size: 13px;
-    background:white;
-    color:#4b4f56;
+    background-color:rgba(255, 255, 255, 0.4);
+    /* color:#4b4f56; */
     padding:0 1.875rem;
     text-align: center;
     margin:0 auto;
@@ -248,9 +356,10 @@ input:focus::-webkit-input-placeholder {
     height: 42px;
     width: 200px;
     background: #e87110;
+    border-color: #e87110;
     color: white;
     outline: none;
-    border: 1px solid;
+    border: none;
     margin-bottom: 47px
 }
         
@@ -349,5 +458,6 @@ input:focus::-webkit-input-placeholder {
 }
 
 .list-group {
-    width: 100%
+    width: 100%;
+    margin-top: -10px
 }

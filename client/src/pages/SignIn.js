@@ -41,11 +41,7 @@ class SignIn extends React.Component{
                 this.setState({ error: err.response.data.error, isLoading: false });
                 console.log(err.response.data)
             }
-            // res => {
-            // this.setState({
-            //     isloading: false,
-            //     error: res.data.error
-            // })
+           
         ).catch(e => console.log(e))
     }
 
@@ -90,6 +86,18 @@ class SignIn extends React.Component{
                         <p>or</p>
                     </div>
                     <button className="create_account" onClick={this.handleClick} disabled={this.state.isLoading}>Create a new account</button>
+                </div>
+                <div className="animation-area">
+                    <ul className="box-area">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
                 </div>
             </div>
         )
